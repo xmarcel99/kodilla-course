@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class oddNumbersTestSuite {
+public class EvenNumbersTestSuite {
 
     @Before
     public void before(){
@@ -26,23 +26,17 @@ public class oddNumbersTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        oddNumbersExterminator.extermiante(new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9)));
+        oddNumbersExterminator.exterminate(new ArrayList<>(Arrays.asList(1,2,3,4,5)));
         //Then
-        List<Integer> oddNumber = new ArrayList<Integer>();
-        oddNumbersExterminator.getListOfOddNumbers((ArrayList<Integer>) oddNumber);
+        int tabOfEvenNumbers[] = new int[2];
+        int expectedTabOfEvenNumbers[] = {2,4};
 
-        int counter = 0;
+        for(int i = 0; i < oddNumbersExterminator.evenNumbers.size() ; i ++) {
+            tabOfEvenNumbers[i] = oddNumbersExterminator.evenNumbers.get(i);
+        }
+        Assert.assertArrayEquals(expectedTabOfEvenNumbers,tabOfEvenNumbers);
 
-        for(Integer x: oddNumber) {
-            if(x % 2 == 0) {
-                counter ++;
-            }
-        }
-        if(counter == oddNumber.size()) {
-            System.out.println("Test ok");
-        } else {
-            System.out.println("Error !");
-        }
+
     }
 
     @Test
@@ -53,11 +47,7 @@ public class oddNumbersTestSuite {
         //When
         int size = oddNumbersExterminator2.checkIfEmpty(new ArrayList<>());
         //Then
-        if(size == 0) {
-            System.out.println("Test ok");
-        } else {
-            System.out.println("Error");
-        }
+        Assert.assertEquals(0,size);
 
 
 

@@ -6,27 +6,20 @@ import java.util.List;
 
 class OddNumbersExterminator {
 
-    List<Integer> oddNumbers = new ArrayList<Integer>();
+    List<Integer> evenNumbers = new ArrayList<Integer>();
 
-    public void extermiante(ArrayList<Integer> numbers) {
+    public  List<Integer> exterminate(ArrayList<Integer> numbers) {
 
         for (Integer x : numbers) {
 
             if (x % 2 == 0) {
-                oddNumbers.add(x);
+                evenNumbers.add(x);
             }
 
         }
-
+        return (ArrayList<Integer>) evenNumbers;
     }
 
-    public void getListOfOddNumbers(ArrayList<Integer> theList) {
-
-        for (Integer x : oddNumbers) {
-            theList.add(x);
-        }
-
-    }
 
     public int checkIfEmpty(ArrayList<Integer> numbers) {
         return numbers.size();
