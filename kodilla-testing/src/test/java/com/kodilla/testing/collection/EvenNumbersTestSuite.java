@@ -44,8 +44,7 @@ public class EvenNumbersTestSuite {
         //Then
         Assert.assertEquals(0,size);
 
-
-
-
     }
+
+
 }
