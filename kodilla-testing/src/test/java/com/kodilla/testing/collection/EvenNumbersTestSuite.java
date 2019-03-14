@@ -26,15 +26,10 @@ public class EvenNumbersTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        oddNumbersExterminator.exterminate(new ArrayList<>(Arrays.asList(1,2,3,4,5)));
+        List <Integer> result = oddNumbersExterminator.exterminate(new ArrayList<>(Arrays.asList(1,2,3,4,5)));
         //Then
-        int tabOfEvenNumbers[] = new int[2];
-        int expectedTabOfEvenNumbers[] = {2,4};
-
-        for(int i = 0; i < oddNumbersExterminator.evenNumbers.size() ; i ++) {
-            tabOfEvenNumbers[i] = oddNumbersExterminator.evenNumbers.get(i);
-        }
-        Assert.assertArrayEquals(expectedTabOfEvenNumbers,tabOfEvenNumbers);
+        List <Integer> expectedTabOfEvenNumbers = new ArrayList<Integer>(Arrays.asList(2,4));
+        Assert.assertEquals(expectedTabOfEvenNumbers,result);
 
 
     }
