@@ -108,7 +108,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOfIfOneBookInHans() {
+    public void testListBooksInHandsOfIfOneBookInHands() {
 
         //Given
         LibraryDatabase libraryDatabase = mock(LibraryDatabase.class);
