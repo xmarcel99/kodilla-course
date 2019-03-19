@@ -6,18 +6,18 @@ import java.util.List;
 
 class OddNumbersExterminator {
 
-    List<Integer> evenNumbers = new ArrayList<Integer>();
+    List<Integer> result = new ArrayList<>();
 
     public  List<Integer> exterminate(ArrayList<Integer> numbers) {
 
         for (Integer x : numbers) {
 
             if (x % 2 == 0) {
-                evenNumbers.add(x);
+                result.add(x);
             }
 
         }
-        return (ArrayList<Integer>) evenNumbers;
+        return (ArrayList<Integer>) result;
     }
 
 
