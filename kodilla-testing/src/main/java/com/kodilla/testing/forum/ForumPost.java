@@ -5,6 +5,13 @@ public class ForumPost {
     String postBody;
     String author;
 
+    @Override
+    public int hashCode() {
+        int result = postBody.hashCode();
+        result = 31 * result + author.hashCode();
+        return result;
+    }
+
     public ForumPost(String postBody, String author) {
         this.postBody = postBody;
         this.author = author;
@@ -22,6 +29,7 @@ public class ForumPost {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        //coments
 
         ForumPost forumPost = (ForumPost) o;
 
@@ -29,10 +37,5 @@ public class ForumPost {
         return author.equals(forumPost.author);
     }
 
-    @Override
-    public int hashCode() {
-        int result = postBody.hashCode();
-        result = 31 * result + author.hashCode();
-        return result;
-    }
+
 }
