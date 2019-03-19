@@ -3,6 +3,7 @@ package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.beautifier.PoemDecorator;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
@@ -47,6 +48,9 @@ public class StreamMain {
              }
             return tab[0]+tab[1]+tab[2]+tab[3]+tab[4]+tab[5];
         });
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
 
 
     }
