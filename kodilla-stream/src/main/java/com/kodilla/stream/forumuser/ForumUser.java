@@ -18,8 +18,8 @@ public final class ForumUser {
         this.publicatedPostCount = publicatedPostCount;
     }
 
-    public int getBirthDate() {
-        return birthDate.getYear();
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
     public char getSex() {
