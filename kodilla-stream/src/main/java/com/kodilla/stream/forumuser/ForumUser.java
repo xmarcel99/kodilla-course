@@ -1,10 +1,11 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public final class ForumUser {
 
-    private final Integer userId;
+    private  final Integer userId;
     private final String username;
     private final char sex;
     private final LocalDate birthDate;
@@ -18,9 +19,6 @@ public final class ForumUser {
         this.publicatedPostCount = publicatedPostCount;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
 
     public char getSex() {
         return sex;
@@ -32,6 +30,11 @@ public final class ForumUser {
 
     public Integer getUserId() {
         return userId;
+    }
+
+    public int getYearsBeetwen() {
+
+        return Period.between(birthDate,LocalDate.now()).getYears();
     }
 
     @Override
