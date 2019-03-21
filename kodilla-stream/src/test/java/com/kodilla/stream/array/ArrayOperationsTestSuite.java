@@ -11,15 +11,17 @@ public class ArrayOperationsTestSuite  implements  ArrayOperations{
     public void testGetAverage() {
 
         //Given
-        int numbers[] = {1,2,3,4,5,6,7,8,9};
+        int numbers[] = {};
 
         //When
         double result = ArrayOperations.getAverage(numbers);
-        double expectedResult = 5.0;
+        double expectedResult = 0.0;
 
 
         //Then
         System.out.println("Average is: " + result);
         Assert.assertEquals(expectedResult, result,0.001);
     }
+
+
 }

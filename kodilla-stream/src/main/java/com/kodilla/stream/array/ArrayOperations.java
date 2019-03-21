@@ -13,7 +13,7 @@ public interface ArrayOperations {
 
         double result  = IntStream.range(0,numbers.length)
                 .map(n->numbers[n])
-                .average().getAsDouble();
+                .average().orElse(0);
 
 
         return result;
