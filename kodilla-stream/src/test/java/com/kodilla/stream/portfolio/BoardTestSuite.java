@@ -150,7 +150,7 @@ public class BoardTestSuite {
         inProgressTasks.add(new TaskList("In progress"));
 
         List<Integer> result =  project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+                .filter(t -> t.equals(inProgressTasks.get(0)))
                 .flatMap(t -> t.getTasks().stream())
                 .map(t -> t.getPeriod())
                 .collect(Collectors.toList());
@@ -161,7 +161,7 @@ public class BoardTestSuite {
                 .average().orElse(1);
 
          //Then
-        Assert.assertEquals(0,average,0.001);
+        Assert.assertEquals(13.3,average,0.1);
 
 
 

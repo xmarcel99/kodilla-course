@@ -35,7 +35,7 @@ public final class TaskList {
 
         TaskList taskList = (TaskList) o;
 
-        return tasks.equals(taskList.tasks);
+        return name.equals(taskList.name);
     }
 
     public void addTask(Task task) {
