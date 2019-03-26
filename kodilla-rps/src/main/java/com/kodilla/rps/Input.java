@@ -31,7 +31,7 @@ public class Input {
     }
 
 
-    public static int getX() {
+    public static int getRoundsToWin() {
         return x;
     }
 

@@ -11,7 +11,8 @@ public class RpsRunner {
         while (!Input.getEnd()) {
             Input.askingAboutPlayerName();
             Input.askingHowManyRoundToWin();
-            while (userCount < Input.getX() && computerCount < Input.getX()) {
+
+            while (userCount < Input.getRoundsToWin() && computerCount < Input.getRoundsToWin()) {
                 GameProcessor.pointCounter();
                  computerCount = GameProcessor.getComputerCount();
                  userCount = GameProcessor.getUserCount();
