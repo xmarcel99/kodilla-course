@@ -10,7 +10,7 @@ public class GameProcessor {
     public static void gameProcessor() {
 
         System.out.println("\nWhat's your move ?:");
-        System.out.println("1.Rock.\n2.Paper.\n3.Scissors.\n ");
+        System.out.println("1.Rock.\n2.Paper.\n3.Scissors.\n4.Lizard. \n5.Spock. ");
         System.out.print("=>");
         Scanner input = new Scanner(System.in);
 
@@ -27,13 +27,19 @@ public class GameProcessor {
             } else if(user == 2) {
                 System.out.println("Computer chose a rock. You won !");
                 userCount++;
-            } else {
-                System.out.println("Computer chose paper. Youw won !");
+            } else if(user == 3){
+                System.out.println("Computer chose paper. You won !");
+                userCount++;
+            } else if ( user == 4 ) {
+                System.out.println("Computer chose Spock. You won !");
+                userCount++;
+            } else if (user == 5) {
+                System.out.println("Computer choce scissors. You won !");
                 userCount++;
             }
 
         } else if ( computer == 2) {
-            if(user == 1 || user == 2 || user ==3) {
+            if(user == 1 || user == 2 || user ==3 || user == 5 || user == 4) {
                 System.out.println("Draw, Both chose the same!!");
             }
         } else if ( computer == 3) {
@@ -43,8 +49,14 @@ public class GameProcessor {
             } else if(user == 2) {
                 System.out.println("Computer chose scissors. You lose !");
                 computerCount++;
-            } else  {
+            } else if(user == 3) {
                 System.out.println("Computer chose rock. You lose !");
+                computerCount++;
+            } else if(user == 4 ) {
+                System.out.println("Computer chose scissors. You lose !");
+                computerCount++;
+            } else if( user == 5 ) {
+                System.out.println("Computer chose paper. You lose !");
                 computerCount++;
             }
         } else if (computer == 4) {
@@ -56,6 +68,12 @@ public class GameProcessor {
                 computerCount++;
             } else if (user == 3) {
                 System.out.println("Computer chose rock. You lose !");
+                computerCount++;
+            }else if(user == 4 ) {
+                System.out.println("Computer chose scissors. You lose !");
+                computerCount++;
+            } else if( user == 5 ) {
+                System.out.println("Computer chose paper. You lose !");
                 computerCount++;
             }
         }
