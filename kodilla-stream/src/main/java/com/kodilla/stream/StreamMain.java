@@ -1,11 +1,14 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.person.People;
 
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class StreamMain {
@@ -22,6 +25,15 @@ public class StreamMain {
 
         resultMap.entrySet().stream()
                 .forEach(System.out::println);
+
+
+        People.getList().stream()
+                .map(s -> s.toUpperCase())
+                .filter(t -> t.length() > 11)
+                .map(t -> t.substring(0,t.indexOf(" ")+2) + ".")
+                .filter(t-> t.substring(0,1).equals("M"))
+                .forEach(System.out::println);
+
 
 
 
