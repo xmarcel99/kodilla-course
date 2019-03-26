@@ -19,27 +19,45 @@ public class GameProcessor {
 
         int user = input.nextInt();
         Random losuj = new Random();
-        int computer = losuj.nextInt(2) + 1;
-        if ( user == 1 && computer == 3) {
-            System.out.println("Computer chose scissors. You won!!");
-            userCount++;
-        } else if (user == 1 && computer == 2) {
-            System.out.println("Computer chose paper. You lose!!");
-            computerCount++;
-        } else if (user == 2 && computer == 1) {
-            System.out.println("Computer chose a rock. You won!!");
-            userCount++;
-        } else if (user == 2 && computer == 3) {
-            System.out.println("Computer chose scissors. You lose!!");
-            computerCount++;
-        } else if (user== 3 && computer== 1) {
-            System.out.println("Computer chose a rock. You lose !!");
-            computerCount++;
-        } else if (user== 3 && computer == 2) {
-            System.out.println("Computer chose paper. You won!!");
-            userCount++;
-        } else {
-            System.out.println("Draw, Both chose the same!!");
+        int computer = losuj.nextInt(3) + 1;
+        if ( computer == 1) {
+            if(user == 1) {
+                System.out.println("Computer chose scissors. You won !");
+                userCount++;
+            } else if(user == 2) {
+                System.out.println("Computer chose a rock. You won !");
+                userCount++;
+            } else {
+                System.out.println("Computer chose paper. Youw won !");
+                userCount++;
+            }
+
+        } else if ( computer == 2) {
+            if(user == 1 || user == 2 || user ==3) {
+                System.out.println("Draw, Both chose the same!!");
+            }
+        } else if ( computer == 3) {
+            if(user == 1) {
+                System.out.println("Computer chose paper. You lose !");
+                computerCount++;
+            } else if(user == 2) {
+                System.out.println("Computer chose scissors. You lose !");
+                computerCount++;
+            } else  {
+                System.out.println("Computer chose rock. You lose !");
+                computerCount++;
+            }
+        } else if (computer == 4) {
+            if(user == 1) {
+                System.out.println("Computer chose paper. You lose !");
+                computerCount++;
+            } else if(user == 2) {
+                System.out.println("Computer chose scissors. You lose !");
+                computerCount++;
+            } else if (user == 3) {
+                System.out.println("Computer chose rock. You lose !");
+                computerCount++;
+            }
         }
         System.out.println("Computer: " + computerCount + "    "+ Rounds.getName()+": " + userCount);
 
