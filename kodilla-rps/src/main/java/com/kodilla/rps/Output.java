@@ -1,8 +1,8 @@
 package com.kodilla.rps;
 
-public class ShowWinner {
+public class Output {
 
-    public static void showWInner() {
+    public static void printingWinner() {
         int userCount = GameProcessor.getUserCount();
         int computerCount = GameProcessor.getComputerCount();
 

@@ -8,16 +8,16 @@ public class RpsRunner {
 
         int computerCount = 0, userCount = 0;
 
-        while (!FinishGame.getEnd()) {
-            Rounds.yourName();
-            Rounds.rounds();
-            while (userCount < Rounds.getX() && computerCount < Rounds.getX()) {
-                GameProcessor.gameProcessor();
+        while (!Input.getEnd()) {
+            Input.askingAboutPlayerName();
+            Input.askingHowManyRoundToWin();
+            while (userCount < Input.getX() && computerCount < Input.getX()) {
+                GameProcessor.pointCounter();
                  computerCount = GameProcessor.getComputerCount();
                  userCount = GameProcessor.getUserCount();
             }
-            ShowWinner.showWInner();
-            FinishGame.finishGame();
+            Output.printingWinner();
+            Input.askingAboutLeaveGameOrPlayAgain();
         }
     }
 }

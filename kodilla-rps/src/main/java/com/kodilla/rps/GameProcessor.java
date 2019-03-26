@@ -7,7 +7,8 @@ public class GameProcessor {
 
     static int computerCount;
     static int userCount;
-    public static void gameProcessor() {
+
+    public static void pointCounter() {
 
         System.out.println("\nWhat's your move ?:");
         System.out.println("1.Rock.\n2.Paper.\n3.Scissors.\n4.Lizard. \n5.Spock. ");
@@ -18,8 +19,8 @@ public class GameProcessor {
 
 
         int user = input.nextInt();
-        Random losuj = new Random();
-        int computer = losuj.nextInt(3) + 1;
+        Random random = new Random();
+        int computer = random.nextInt(3) + 1;
         if ( computer == 1) {
             if(user == 1) {
                 System.out.println("Computer chose scissors. You won !");
@@ -77,7 +78,7 @@ public class GameProcessor {
                 computerCount++;
             }
         }
-        System.out.println("Computer: " + computerCount + "    "+ Rounds.getName()+": " + userCount);
+        System.out.println("Computer: " + computerCount + "    "+ Input.getName()+": " + userCount);
 
     }
 
