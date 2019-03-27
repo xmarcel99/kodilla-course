@@ -4,35 +4,32 @@ import java.util.Scanner;
 
 public class Input {
 
-    static int x;
+    static int roundCounter;
     static  String name;
     static boolean end = false;
+    static Scanner input = new Scanner(System.in);
 
     public static void askingHowManyRoundToWin() {
-        Scanner input = new Scanner(System.in);
-
         System.out.println(">>How many game win to finish?");
         System.out.print("=>");
-
-        x = input.nextInt();
-
-
-        System.out.println("Game set to  " + x + " wins.");
+        roundCounter = input.nextInt();
+        System.out.println("Game set to  " + roundCounter + " wins.");
 
     }
 
     public static void askingAboutPlayerName() {
+        Scanner input1 = new Scanner(System.in);
         System.out.println("| Welcome in Game |");
         System.out.println();
-        Scanner input = new Scanner(System.in);
+
         System.out.println("What's your name ?");
-        name = input.nextLine();
+        name = input1.nextLine();
 
     }
 
 
     public static int getRoundsToWin() {
-        return x;
+        return roundCounter;
     }
 
     public static String getName() {return name;}
@@ -44,13 +41,16 @@ public class Input {
 
         System.out.println("\nWould you like to play again  ? n-Yes x-No");
         System.out.print("=>");
-        Scanner input = new Scanner(System.in);
-        String again = input.nextLine();
+        Scanner readplayagain = new Scanner(System.in);
+        String again = readplayagain.nextLine();
 
 
 
         if (again.equals("n")) {
             end = false;
+            GameProcessor.setComputerCount(0);
+            GameProcessor.setUserCount(0);
+
         } else if (again.equals("x")) {
             System.out.println("See you later!");
             end = true;

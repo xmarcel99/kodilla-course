@@ -2,13 +2,14 @@ package com.kodilla.stream.person;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public final class People {
+    final List<String> theList = new ArrayList<>();
 
-    public static List<String> getList() {
+    public People() {
 
-        final List<String> theList = new ArrayList<>();
         theList.add("John Smith");
         theList.add("Dorothy Newman");
         theList.add("John Wolkowitz");
@@ -19,8 +20,14 @@ public final class People {
         theList.add("Corinne Foster");
         theList.add("Khloe fry");
         theList.add("Martin Valenzuela");
-        //return new ArrayList<String>(theList);
-        return theList;
+
+    }
+    public List<String> getList() {
+
+        return new ArrayList<String>(theList);
+
+        //return theList;
+
     }
 
 

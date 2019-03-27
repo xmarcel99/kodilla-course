@@ -26,8 +26,18 @@ public class StreamMain {
                 .forEach(System.out::println);
 
 
-        People.getList().stream()
+        People people = new People();
+
+        people.getList().stream()
                 .forEach(System.out::println);
+
+        people.getList().add("Marcel");
+
+        people.getList().stream()
+                .forEach(System.out::println);
+
+
+
 
 
     }

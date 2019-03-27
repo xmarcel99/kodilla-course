@@ -6,7 +6,8 @@ public class RpsRunner {
 
     public static void main(String args[])  {
 
-        int computerCount = 0, userCount = 0;
+         int userCount = GameProcessor.setUserCount(0);
+         int computerCount = GameProcessor.setComputerCount(0);
 
         while (!Input.getEnd()) {
             Input.askingAboutPlayerName();
