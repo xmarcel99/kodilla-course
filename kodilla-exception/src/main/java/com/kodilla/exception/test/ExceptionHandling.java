@@ -6,11 +6,8 @@ public class ExceptionHandling {
 
         SecondChallenge secondChallenge = new SecondChallenge();
 
-
         try  {
-
             secondChallenge.probablyIWillThrowException(2,5);
-
         } catch(Exception e) {
             System.out.println("Exception: " + e);
         } finally {
