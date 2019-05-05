@@ -1,19 +1,11 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-public class ExtraFoodShop implements DelivererProcess {
-    private String delivererName;
-    private Product product;
-
+public class ExtraFoodShop extends BaseShop{
     public ExtraFoodShop(String delivererName, Product product) {
-        this.product = product;
-        this.delivererName = delivererName;
+        super(delivererName,product);
     }
     public boolean process() {
-        System.out.println(delivererName + " is implements order : " + product.getProductName() + ", count: " + product.getProductCount() );
+        System.out.println(getDelivererName() + " is implements order : " + getProduct().getProductName() + ", count: " + getProduct().getProductCount() );
         return true;
-    }
-
-    public String getNameOfDeliverer() {
-        return  delivererName;
     }
 }

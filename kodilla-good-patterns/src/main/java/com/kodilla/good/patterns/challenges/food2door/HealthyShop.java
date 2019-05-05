@@ -1,22 +1,15 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-public class HealthyShop implements  DelivererProcess {
-    private String delivererName;
-    private Product product;
-
+public class HealthyShop extends  BaseShop {
     public HealthyShop(String delivererName, Product product) {
-        this.delivererName = delivererName;
-        this.product = product;
+        super(delivererName,product);
     }
     public boolean process() {
-        if(product.getProductCount() == 1244004) {
-            System.out.println(delivererName + " is implements order : " + product.getProductName() + ", count: " + product.getProductCount() );
+        if(getProduct().getProductCount() == 1244004) {
+            System.out.println(getDelivererName() + " is implements order : " + getProduct().getProductName() + ", count: " + getProduct().getProductCount());
             return true;
         } else {
             return  false;
         }
-    }
-    public String getNameOfDeliverer() {
-        return  delivererName;
     }
 }

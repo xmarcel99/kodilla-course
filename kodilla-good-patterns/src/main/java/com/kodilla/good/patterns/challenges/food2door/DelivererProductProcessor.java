@@ -1,12 +1,12 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 public class DelivererProductProcessor {
-    private DelivererProcess delivererProcess;
+    private BaseShop baseShop;
     private DeliverInformation deliverInformation;
     private RepositorySaving repositorySaving;
 
-    public DelivererProductProcessor(DelivererProcess delivererProcess, DeliverInformation deliverInformation, RepositorySaving repositorySaving) {
-        this.delivererProcess = delivererProcess;
+    public DelivererProductProcessor(BaseShop baseShop, DeliverInformation deliverInformation, RepositorySaving repositorySaving) {
+        this.baseShop = baseShop;
         this.deliverInformation = deliverInformation;
         this.repositorySaving = repositorySaving;
     }
@@ -15,10 +15,10 @@ public class DelivererProductProcessor {
         if(isAllowedDeliver) {
             deliverInformation.deliverInformation();
             repositorySaving.saveDeliverInRepository();
-            return new DelivererDto(delivererProcess,true);
+            return new DelivererDto(baseShop,true);
         }else {
             System.out.println("Ups... We don't have products which you would like to order :( ");
-            return  new DelivererDto(delivererProcess,false);
+            return  new DelivererDto(baseShop,false);
         }
     }
 }
