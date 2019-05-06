@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SearchingFlightProcessor {
-    static private Map<String, List<String>> flightBase = BaseOfFlight.getDataBase();
+    static private Map<DeparturePlace, List<String>> flightBase = BaseOfFlight.getDataBase();
     public static void processor() {
         int optionNumber = InputData.startApplication();
         if (optionNumber == 1) {
@@ -15,6 +15,9 @@ public class SearchingFlightProcessor {
             String city = InputData.enterCountry();
            AllowedCities.showFlightsToEnteredCity(city,flightBase);
         } else if (optionNumber == 3) {
+            System.out.println("Enter city which is between departure city and arrival city :");
+            String city = InputData.enterCountry();
+            AllowedCities.showFlightsThroughEnteredCity(city,flightBase);
 
         }
     }
