@@ -10,7 +10,7 @@ public class BoardTestSuite {
     public void testTaskAdd() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
-        Board board =(Board) context.getBean("board");
+        Board board = (Board) context.getBean("board");
         //When
         TaskList toDoList = board.getToDoList();
         toDoList.getTasks().add("Task 1");
@@ -19,8 +19,8 @@ public class BoardTestSuite {
         TaskList doneList = board.getDoneList();
         doneList.getTasks().add("Task 3");
         //Then
-        Assert.assertEquals("Task 1",board.getToDoList().getTasks().get(0));
-        Assert.assertEquals("Task 2",board.getInProgressList().getTasks().get(0));
-        Assert.assertEquals("Task 3",board.getDoneList().getTasks().get(0));
+        Assert.assertEquals("Task 1", board.getToDoList().getTasks().get(0));
+        Assert.assertEquals("Task 2", board.getInProgressList().getTasks().get(0));
+        Assert.assertEquals("Task 3", board.getDoneList().getTasks().get(0));
     }
 }

@@ -10,11 +10,12 @@ public class InputData {
         System.out.println("Finding flights through another given city  ---  press 3");
         Scanner chooseOption = new Scanner(System.in);
         int optionNUmber = chooseOption.nextInt();
-        return  optionNUmber;
+        return optionNUmber;
     }
+
     public static String enterCountry() {
         Scanner cityInput = new Scanner(System.in);
         String city = cityInput.nextLine();
-        return  city;
+        return city;
     }
 }

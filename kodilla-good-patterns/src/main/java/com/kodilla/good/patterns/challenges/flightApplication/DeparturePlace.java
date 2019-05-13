@@ -31,14 +31,15 @@ public class DeparturePlace {
     public int hashCode() {
         return departurePlace.hashCode();
     }
+
     public static List<String> getCityKey(String city) {
         List<String> resultList = new ArrayList<>();
-        for(Map.Entry<DeparturePlace,List<String>> y : BaseOfFlight.getDataBase().entrySet()) {
+        for (Map.Entry<DeparturePlace, List<String>> y : BaseOfFlight.getDataBase().entrySet()) {
             String departureCity = y.getKey().getDeparturePlace();
-            if(departureCity.equals(city)){
+            if (departureCity.equals(city)) {
                 resultList = y.getValue();
             }
         }
-        return  resultList;
+        return resultList;
     }
 }

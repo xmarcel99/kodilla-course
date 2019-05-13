@@ -20,6 +20,6 @@ public class Square implements Shape {
     }
 
     public String toString() {
-        return name + ", " + "Field: " + side*side;
+        return name + ", " + "Field: " + side * side;
     }
 }

@@ -4,7 +4,7 @@ public class OrderDto {
     boolean canBuy;
     User user;
 
-    public OrderDto( User user,boolean canBuy) {
+    public OrderDto(User user, boolean canBuy) {
         this.canBuy = canBuy;
         this.user = user;
     }

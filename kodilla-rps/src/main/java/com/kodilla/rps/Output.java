@@ -6,7 +6,7 @@ public class Output {
         int userCount = GameProcessor.getUserCount();
         int computerCount = GameProcessor.getComputerCount();
 
-        if (userCount > computerCount ) {
+        if (userCount > computerCount) {
             System.out.println();
             System.out.println("| You win ! |\n| Result  " + computerCount + ":" + userCount + " |");
             System.out.println();

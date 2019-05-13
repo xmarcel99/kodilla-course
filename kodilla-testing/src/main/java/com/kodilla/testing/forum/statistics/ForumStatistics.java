@@ -11,7 +11,6 @@ public class ForumStatistics {
     Statistics statistics;
 
 
-
     public void calculateAdvStatistics(Statistics statistics) {
 
         usersCount = statistics.usersNames().size();

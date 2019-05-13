@@ -2,7 +2,7 @@ package com.kodilla.stream.immutable;
 
 public final class ForumUser {
 
-    private  String username;
+    private String username;
     private String realName;
 
     public ForumUser(final String username, final String realName) {

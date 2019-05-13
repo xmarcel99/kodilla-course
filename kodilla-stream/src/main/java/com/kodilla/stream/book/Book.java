@@ -1,7 +1,6 @@
 package com.kodilla.stream.book;
 
 
-
 public final class Book {
     private final String author;
     private final String title;

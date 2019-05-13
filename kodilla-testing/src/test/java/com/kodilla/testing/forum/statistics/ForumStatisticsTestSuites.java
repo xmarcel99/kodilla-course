@@ -31,8 +31,8 @@ public class ForumStatisticsTestSuites {
 
 
         //Then
-        Assert.assertEquals(0.0,resultAveragePostForUser,0.001);
-         Assert.assertEquals(0.0,resultAverageCommentForUser,0.001);
+        Assert.assertEquals(0.0, resultAveragePostForUser, 0.001);
+        Assert.assertEquals(0.0, resultAverageCommentForUser, 0.001);
     }
 
     @Test
@@ -42,8 +42,8 @@ public class ForumStatisticsTestSuites {
         Statistics statistics = mock(Statistics.class);
         ForumStatistics forumStatistics = new ForumStatistics();
         List<String> users = new ArrayList<>();
-        for(int i = 0; i < 100; i ++) {
-            users.add("user"+i);
+        for (int i = 0; i < 100; i++) {
+            users.add("user" + i);
         }
         when(statistics.usersNames()).thenReturn(users);
         when(statistics.commentsCount()).thenReturn(50);
@@ -52,13 +52,13 @@ public class ForumStatisticsTestSuites {
         //When
         forumStatistics.calculateAdvStatistics(statistics);
         double resultAverageCommentForPost = forumStatistics.averageCommentsForPost;
-        double resultAveragePostForUser =forumStatistics.averagePostForUser;
-        double resultAverageCommentForUser= forumStatistics.averageCommentForUser;
+        double resultAveragePostForUser = forumStatistics.averagePostForUser;
+        double resultAverageCommentForUser = forumStatistics.averageCommentForUser;
 
         //Then
-        Assert.assertEquals(0.5,resultAverageCommentForPost,0.001);
-        Assert.assertEquals(1,resultAveragePostForUser,0.001);
-        Assert.assertEquals(0.5,resultAverageCommentForUser,0.001);
+        Assert.assertEquals(0.5, resultAverageCommentForPost, 0.001);
+        Assert.assertEquals(1, resultAveragePostForUser, 0.001);
+        Assert.assertEquals(0.5, resultAverageCommentForUser, 0.001);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class ForumStatisticsTestSuites {
         double resultAverageCommentForPost = forumStatistics.averageCommentsForPost;
 
         //Then
-        Assert.assertEquals(2,resultAverageCommentForPost,0.001);
+        Assert.assertEquals(2, resultAverageCommentForPost, 0.001);
 
 
     }

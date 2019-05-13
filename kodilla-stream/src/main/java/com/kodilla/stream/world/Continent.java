@@ -12,7 +12,7 @@ public class Continent {
         this.continent = continent;
     }
 
-    public  List<Country> getCountryList() {
+    public List<Country> getCountryList() {
         return new ArrayList<Country>(countryListInThisContinent);
     }
 }

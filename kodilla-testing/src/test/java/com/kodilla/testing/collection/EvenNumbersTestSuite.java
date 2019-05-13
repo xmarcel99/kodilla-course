@@ -13,11 +13,12 @@ import java.util.List;
 public class EvenNumbersTestSuite {
 
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Test Case: begin");
     }
+
     @After
-    public void after(){
+    public void after() {
         System.out.println("Test Case: end");
     }
 
@@ -26,10 +27,10 @@ public class EvenNumbersTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        List <Integer> result = oddNumbersExterminator.exterminate(new ArrayList<>(Arrays.asList(1,2,3,4,5)));
+        List<Integer> result = oddNumbersExterminator.exterminate(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)));
         //Then
-        List <Integer> expectedTabOfEvenNumbers = new ArrayList<Integer>(Arrays.asList(2,4));
-        Assert.assertEquals(expectedTabOfEvenNumbers,result);
+        List<Integer> expectedTabOfEvenNumbers = new ArrayList<Integer>(Arrays.asList(2, 4));
+        Assert.assertEquals(expectedTabOfEvenNumbers, result);
 
 
     }
@@ -42,7 +43,7 @@ public class EvenNumbersTestSuite {
         //When
         int size = oddNumbersExterminator2.checkIfEmpty(new ArrayList<>());
         //Then
-        Assert.assertEquals(0,size);
+        Assert.assertEquals(0, size);
 
     }
 

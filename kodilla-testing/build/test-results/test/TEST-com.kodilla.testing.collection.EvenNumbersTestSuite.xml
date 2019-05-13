@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.collection.EvenNumbersTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-05-01T13:41:51" hostname="xMarcel99" time="0.002">
-  <properties/>
-  <testcase name="testOddNumbersExterminatorEmptyList" classname="com.kodilla.testing.collection.EvenNumbersTestSuite" time="0.001"/>
-  <testcase name="testOddNumbersExterminatorNormalList" classname="com.kodilla.testing.collection.EvenNumbersTestSuite" time="0.001"/>
-  <system-out><![CDATA[Test Case: begin
+<testsuite name="com.kodilla.testing.collection.EvenNumbersTestSuite" tests="2" skipped="0" failures="0" errors="0"
+           timestamp="2019-05-01T13:41:51" hostname="xMarcel99" time="0.002">
+    <properties/>
+    <testcase name="testOddNumbersExterminatorEmptyList" classname="com.kodilla.testing.collection.EvenNumbersTestSuite"
+              time="0.001"/>
+    <testcase name="testOddNumbersExterminatorNormalList"
+              classname="com.kodilla.testing.collection.EvenNumbersTestSuite" time="0.001"/>
+    <system-out><![CDATA[Test Case: begin
 Test Case: end
 Test Case: begin
 Test Case: end
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+    <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -10,15 +10,16 @@ public class DelivererProductProcessor {
         this.deliverInformation = deliverInformation;
         this.repositorySaving = repositorySaving;
     }
+
     public DelivererDto processor(OrderRequest orderRequest) {
         boolean isAllowedDeliver = orderRequest.getDelivererProcessName().process();
-        if(isAllowedDeliver) {
+        if (isAllowedDeliver) {
             deliverInformation.deliverInformation();
             repositorySaving.saveDeliverInRepository();
-            return new DelivererDto(baseShop,true);
-        }else {
+            return new DelivererDto(baseShop, true);
+        } else {
             System.out.println("Ups... We don't have products which you would like to order :( ");
-            return  new DelivererDto(baseShop,false);
+            return new DelivererDto(baseShop, false);
         }
     }
 }

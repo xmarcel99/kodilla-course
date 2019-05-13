@@ -19,8 +19,8 @@ public class StreamMain {
         Map<Integer, ForumUser> resultMap = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
                 .filter(forumUser -> forumUser.getYearsBeetwen() > 20)
-                .filter(forumUser -> forumUser.getPublicatedPostCount()>=1)
-                .collect(Collectors.toMap(ForumUser::getUserId,forumUser -> forumUser));
+                .filter(forumUser -> forumUser.getPublicatedPostCount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
 
         resultMap.entrySet().stream()
                 .forEach(System.out::println);
@@ -35,9 +35,6 @@ public class StreamMain {
 
         people.getList().stream()
                 .forEach(System.out::println);
-
-
-
 
 
     }

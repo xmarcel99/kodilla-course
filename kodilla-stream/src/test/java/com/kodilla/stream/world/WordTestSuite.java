@@ -11,12 +11,12 @@ public class WordTestSuite {
     public void testgetPeopleQuantity() {
 
         //Given
-        Country country = new Country("Poland",new BigDecimal("12"));
-        Country country1 = new Country("Germany",new BigDecimal("12"));
+        Country country = new Country("Poland", new BigDecimal("12"));
+        Country country1 = new Country("Germany", new BigDecimal("12"));
         Continent continent = new Continent("Europe");
 
-        Country country2 = new Country("Ghana",new BigDecimal("50"));
-        Country country3 = new Country("Rpa",new BigDecimal("50"));
+        Country country2 = new Country("Ghana", new BigDecimal("50"));
+        Country country3 = new Country("Rpa", new BigDecimal("50"));
         Continent continent1 = new Continent("Africa");
 
 
@@ -32,7 +32,7 @@ public class WordTestSuite {
         BigDecimal result = world.getPeopleQuantity();
 
         //Then
-        Assert.assertEquals(new BigDecimal("124"),result);
+        Assert.assertEquals(new BigDecimal("124"), result);
 
     }
 }

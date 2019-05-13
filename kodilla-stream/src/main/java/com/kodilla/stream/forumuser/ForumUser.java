@@ -5,17 +5,17 @@ import java.time.Period;
 
 public final class ForumUser {
 
-    private  final Integer userId;
+    private final Integer userId;
     private final String username;
     private final char sex;
     private final LocalDate birthDate;
     private final int publicatedPostCount;
 
-    public ForumUser( final Integer userId,final String username,final char sex,final  int publicatedPostCount,final int year,final int month,final int day) {
+    public ForumUser(final Integer userId, final String username, final char sex, final int publicatedPostCount, final int year, final int month, final int day) {
         this.userId = userId;
         this.username = username;
         this.sex = sex;
-        this.birthDate = LocalDate.of(year,month,day);
+        this.birthDate = LocalDate.of(year, month, day);
         this.publicatedPostCount = publicatedPostCount;
     }
 
@@ -34,7 +34,7 @@ public final class ForumUser {
 
     public int getYearsBeetwen() {
 
-        return Period.between(birthDate,LocalDate.now()).getYears();
+        return Period.between(birthDate, LocalDate.now()).getYears();
     }
 
     @Override

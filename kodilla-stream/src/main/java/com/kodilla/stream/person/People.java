@@ -22,6 +22,7 @@ public final class People {
         theList.add("Martin Valenzuela");
 
     }
+
     public List<String> getList() {
 
         return new ArrayList<String>(theList);

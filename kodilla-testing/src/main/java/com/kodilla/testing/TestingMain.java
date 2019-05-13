@@ -7,8 +7,7 @@ import com.kodilla.testing.user.SimpleUser;
 import java.lang.reflect.Field;
 
 public class TestingMain {
-    public static void main (String[] args) {
-
+    public static void main(String[] args) {
 
 
     }

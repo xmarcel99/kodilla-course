@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Input {
 
     static int roundCounter;
-    static  String name;
+    static String name;
     static boolean end = false;
     static Scanner input = new Scanner(System.in);
 
@@ -32,18 +32,17 @@ public class Input {
         return roundCounter;
     }
 
-    public static String getName() {return name;}
+    public static String getName() {
+        return name;
+    }
 
 
-
-
-    public static  void askingAboutLeaveGameOrPlayAgain() {
+    public static void askingAboutLeaveGameOrPlayAgain() {
 
         System.out.println("\nWould you like to play again  ? n-Yes x-No");
         System.out.print("=>");
         Scanner readplayagain = new Scanner(System.in);
         String again = readplayagain.nextLine();
-
 
 
         if (again.equals("n")) {
@@ -57,7 +56,8 @@ public class Input {
         }
 
     }
+
     public static boolean getEnd() {
-        return  end;
+        return end;
     }
 }

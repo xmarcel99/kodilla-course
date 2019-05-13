@@ -8,7 +8,7 @@ class OddNumbersExterminator {
 
     List<Integer> result = new ArrayList<>();
 
-    public  List<Integer> exterminate(ArrayList<Integer> numbers) {
+    public List<Integer> exterminate(ArrayList<Integer> numbers) {
 
         for (Integer x : numbers) {
 

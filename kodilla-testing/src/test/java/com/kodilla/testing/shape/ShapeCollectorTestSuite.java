@@ -21,7 +21,7 @@ public class ShapeCollectorTestSuite {
         int sizeOfList = shapeCollector.shapes.size();
 
         //Then
-        Assert.assertEquals(1,sizeOfList);
+        Assert.assertEquals(1, sizeOfList);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ShapeCollectorTestSuite {
         int sizeOfList = shapeCollector.shapes.size();
 
         //Then
-        Assert.assertEquals(1,sizeOfList);
+        Assert.assertEquals(1, sizeOfList);
 
     }
 
@@ -55,7 +55,7 @@ public class ShapeCollectorTestSuite {
         Shape figure = shapeCollector.getFigure(0);
 
         //Then
-        Assert.assertEquals(square,figure);
+        Assert.assertEquals(square, figure);
     }
 
     @Test
@@ -63,17 +63,17 @@ public class ShapeCollectorTestSuite {
 
         //Given
         Square square = new Square(5);
-        Triangle triangle = new Triangle(5,4);
+        Triangle triangle = new Triangle(5, 4);
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
-        List<Shape> shapes = new ArrayList<Shape>(Arrays.asList(square,triangle));
+        List<Shape> shapes = new ArrayList<Shape>(Arrays.asList(square, triangle));
 
         //When
         List<Shape> result = shapeCollector.showFigures();
 
         //Then
-        Assert.assertEquals(shapes,result);
+        Assert.assertEquals(shapes, result);
 
     }
 }

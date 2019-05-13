@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.OptionalDouble;
 
-public class ArrayOperationsTestSuite  implements  ArrayOperations{
+public class ArrayOperationsTestSuite implements ArrayOperations {
 
     @Test
     public void testGetAverage() {
@@ -20,7 +20,7 @@ public class ArrayOperationsTestSuite  implements  ArrayOperations{
 
         //Then
         System.out.println("Average is: " + result);
-        Assert.assertEquals(expectedResult, result,0.001);
+        Assert.assertEquals(expectedResult, result, 0.001);
     }
 
 

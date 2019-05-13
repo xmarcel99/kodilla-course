@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="OrderInShopTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-05-07T14:30:53" hostname="xMarcel99" time="0.016">
-  <properties/>
-  <testcase name="testOrderInExtraFoodShop" classname="OrderInShopTestSuite" time="0.015"/>
-  <testcase name="testGlutenFreeShop" classname="OrderInShopTestSuite" time="0.001"/>
-  <testcase name="testOrderInHealthyShop" classname="OrderInShopTestSuite" time="0.0"/>
-  <system-out><![CDATA[ExtraFoodShop is implements order : Apple, count: 12432
+<testsuite name="OrderInShopTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-05-07T14:30:53"
+           hostname="xMarcel99" time="0.016">
+    <properties/>
+    <testcase name="testOrderInExtraFoodShop" classname="OrderInShopTestSuite" time="0.015"/>
+    <testcase name="testGlutenFreeShop" classname="OrderInShopTestSuite" time="0.001"/>
+    <testcase name="testOrderInHealthyShop" classname="OrderInShopTestSuite" time="0.0"/>
+    <system-out><![CDATA[ExtraFoodShop is implements order : Apple, count: 12432
 New deliver has been started ! 
 New deliver has been added to repository
 ExtraFoodShop is implements order : Apple, count: 12432
 Ups... We don't have products which you would like to order :( 
 Ups... We don't have products which you would like to order :( 
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+    <system-err><![CDATA[]]></system-err>
 </testsuite>

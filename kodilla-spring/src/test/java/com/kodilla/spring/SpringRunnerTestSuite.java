@@ -17,7 +17,7 @@ public class SpringRunnerTestSuite {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = (Shape) context.getBean("circle");
+        Shape shape = context.getBean(Circle.class);
         //When
         String name = shape.getShapeName();
         //Then

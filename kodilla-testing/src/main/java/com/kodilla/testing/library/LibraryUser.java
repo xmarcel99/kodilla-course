@@ -42,7 +42,7 @@ public class LibraryUser {
 
         if (!firstname.equals(that.firstname)) return false;
         if (!lastname.equals(that.lastname)) return false;
-        return (peselId==that.peselId);
+        return (peselId == that.peselId);
     }
 
     @Override
