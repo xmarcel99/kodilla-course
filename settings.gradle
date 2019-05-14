@@ -5,4 +5,5 @@ pluginManagement {
 }
 rootProject.name = 'kodilla-spring-web'
 include 'kodilla-spring-intro2'
+include 'kodilla-patterns'
 
