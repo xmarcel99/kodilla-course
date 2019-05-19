@@ -60,4 +60,16 @@ public final class Bigmac {
     public List<String> getIngredientsList() {
         return ingredientsList;
     }
+
+    public String getBun() {
+        return bun;
+    }
+
+    public int getBurgers() {
+        return burgers;
+    }
+
+    public String getSauce() {
+        return sauce;
+    }
 }
