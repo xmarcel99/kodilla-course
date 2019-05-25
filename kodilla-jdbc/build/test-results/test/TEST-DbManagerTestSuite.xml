@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DbManagerTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-25T18:45:46" hostname="xMarcel99" time="0.333">
+  <properties/>
+  <testcase name="testSelectUsersAndPosts" classname="DbManagerTestSuite" time="0.333"/>
+  <system-out><![CDATA[Humans with more or equals 2 post :
+JOHN, SMITH
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
