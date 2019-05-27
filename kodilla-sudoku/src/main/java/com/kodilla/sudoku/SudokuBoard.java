@@ -23,20 +23,18 @@ public class SudokuBoard {
 
     @Override
     public String toString() {
-        int counter = 0;
-        String readyBoard = "|---|---|---|---|---|---|---|---|---|\n";
+        String readyBoardASCII = "|---|---|---|---|---|---|---|---|---|\n";
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
 
-                if (elementsOfSudoku.get(counter).getValue() == SudokuElement.EMPTY) {
-                    readyBoard += "| " + elementsOfSudoku.get(counter) + " ";
+                if (readyBoard[i][j].getValue() == SudokuElement.EMPTY) {
+                    readyBoardASCII += "| " + readyBoard[i][j] + " ";
                 } else {
-                    readyBoard += "| " + elementsOfSudoku.get(counter).getValue() + " ";
+                    readyBoardASCII += "| " + readyBoard[i][j].getValue() + " ";
                 }
-                counter++;
             }
-            readyBoard += "|\n" + "|---|---|---|---|---|---|---|---|---|\n";
+            readyBoardASCII += "|\n" + "|---|---|---|---|---|---|---|---|---|\n";
         }
-        return readyBoard;
+        return readyBoardASCII;
     }
 }
