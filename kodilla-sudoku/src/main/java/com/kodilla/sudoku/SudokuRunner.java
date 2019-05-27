@@ -55,6 +55,7 @@ public class SudokuRunner {
                 sudokuGame.sudokuProcessor(SudokuGame.COLUMN,9,SudokuBoard.readyBoard);
             }
             gameFinished = sudokuGame.resolveSudoku();
+
         }
     }
 }
