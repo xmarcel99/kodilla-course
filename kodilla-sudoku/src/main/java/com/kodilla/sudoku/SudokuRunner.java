@@ -23,17 +23,36 @@ public class SudokuRunner {
                     coordinates.add(number);
                 }
 
-                for (SudokuElement x : SudokuBoard.elementsOfSudoku) {
-                    if (x.getX() + 1 == coordinates.get(1) && x.getY() + 1 == coordinates.get(0)) {
-                        x.setValue(coordinates.get(2));
+                for (SudokuElement[] y : SudokuBoard.readyBoard) {
+                    for(SudokuElement x : y) {
+                        if (x.getX() + 1 == coordinates.get(1) && x.getY() + 1 == coordinates.get(0)) {
+                            x.setValue(coordinates.get(2));
+                        }
                     }
                 }
                 coordinates.clear();
                 System.out.println(sudokuBoard.toString());
             } else if (numberForSudoku.equals("SUDOKU")){
-                sudokuGame.sudokuProcessor(SudokuGame.ROW);
-                sudokuGame.sudokuProcessor(SudokuGame.COLUMN);
-                System.out.println(sudokuBoard.toString());
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,0,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,0,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,1,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,1,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,2,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,2,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,3,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,3,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,4,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,4,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,5,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,5,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,6,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,6,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,7,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,7,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,8,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,8,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.ROW,9,SudokuBoard.readyBoard);
+                sudokuGame.sudokuProcessor(SudokuGame.COLUMN,9,SudokuBoard.readyBoard);
             }
             gameFinished = sudokuGame.resolveSudoku();
         }

@@ -5,20 +5,18 @@ import java.util.List;
 
 public class SudokuBoard {
     public static  List<SudokuRow> boardRow = new ArrayList<>();
-    public static List<SudokuElement> elementsOfSudoku = new ArrayList<>();
     public static  SudokuElement[][] readyBoard = new SudokuElement[9][9];
 
-    public  List<SudokuElement> createContent() {
+    public  SudokuElement[][] createContent() {
         for (int i = 0; i < 9; i++) {
             boardRow.add(new SudokuRow());
             for (int j = 0; j < 9; j++) {
                 SudokuElement sudokuElement = new SudokuElement(SudokuElement.EMPTY, i, j);
-                elementsOfSudoku.add(sudokuElement);
                 boardRow.get(i).getRow().add(sudokuElement);
                 readyBoard[i][j] = sudokuElement;
             }
         }
-        return  elementsOfSudoku;
+        return  readyBoard;
     }
 
     @Override
