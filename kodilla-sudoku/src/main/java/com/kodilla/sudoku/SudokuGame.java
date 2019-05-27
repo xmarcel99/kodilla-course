@@ -1,12 +1,14 @@
 package com.kodilla.sudoku;
 
+import java.util.List;
+
 public class SudokuGame {
     public static String ROW = "ROW";
     public static String COLUMN = "COLUMN";
     public static String SECTION = "SECTION";
 
     public boolean resolveSudoku() {
-        return true;
+        return false;
     }
 
     public void sudokuProcessor(String rowOrColumn) throws NotEnoughOptionsException {
@@ -39,6 +41,17 @@ public class SudokuGame {
                         }
                     }
                 }
+            }
+        }
+        redrawBoard(SudokuBoard.elementsOfSudoku);
+
+    }
+
+    public static void redrawBoard(List<SudokuElement> list) {
+        list.clear();
+        for(int i = 0; i < 9 ; i ++) {
+            for(int j = 0; j< 9;j++) {
+                list.add(SudokuBoard.readyBoard[i][j]);
             }
         }
     }

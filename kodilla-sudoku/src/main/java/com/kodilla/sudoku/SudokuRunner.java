@@ -33,6 +33,7 @@ public class SudokuRunner {
             } else if (numberForSudoku.equals("SUDOKU")){
                 sudokuGame.sudokuProcessor(SudokuGame.ROW);
                 sudokuGame.sudokuProcessor(SudokuGame.COLUMN);
+                System.out.println(sudokuBoard.toString());
             }
             gameFinished = sudokuGame.resolveSudoku();
         }
