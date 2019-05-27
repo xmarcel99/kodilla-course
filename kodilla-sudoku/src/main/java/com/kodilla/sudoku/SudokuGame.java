@@ -59,28 +59,26 @@ public class SudokuGame {
                     xTable = i;
                     yTable = j;
                 }
-            }
-            if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
-                for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
-                    if (SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
-                        table[xTable][yTable].getPossibleValues().remove(number);
-                        if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                            table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
-                        }
-                    } else if (!SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
-                        for (SudokuElement element : SudokuBoard.boardRow.get(xTable).getRow()) {
-                            if (!element.getPossibleValues().contains(number)) {
-                                table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(number));
+                if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
+                    for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
+                        if (SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
+                            table[xTable][yTable].getPossibleValues().remove(number);
+                            if (table[xTable][yTable].getPossibleValues().size() == 1) {
+                                table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                             }
+                        } else if (!SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
+                            for (SudokuElement element : SudokuBoard.boardRow.get(xTable).getRow()) {
+                                if (!element.getPossibleValues().contains(number)) {
+                                    table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(number));
+                                }
+                            }
+                        } else if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
+                            throw new NotEnoughOptionsException();
                         }
-                    } else if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
-                        throw new NotEnoughOptionsException();
                     }
                 }
             }
         }
-
-
     }
 
     public static int countOfEmptyPlaces() {
