@@ -3,7 +3,6 @@ package com.kodilla.sudoku;
 public class SudokuGame {
     public static String ROW = "ROW";
     public static String COLUMN = "COLUMN";
-    public static String SQUARE = "SQUARE";
 
     public boolean resolveSudoku() {
         int counter = 0;
@@ -28,7 +27,7 @@ public class SudokuGame {
         int loopOperatingVariableB = 0;
         int xTable = 0;
         int yTable = 0;
-        if (rowOrColumn.equals(SQUARE)) {
+        if (squareNumber != 0) {
             if (squareNumber == 1 || squareNumber == 4 || squareNumber == 7) {
                 loopOperatingVariableA = 0;
                 conditionLoopVariableA = 3;

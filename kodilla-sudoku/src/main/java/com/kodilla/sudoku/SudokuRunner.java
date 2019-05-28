@@ -54,6 +54,7 @@ public class SudokuRunner {
                     sudokuGame.sudokuProcessor(SudokuGame.ROW, 9, SudokuBoard.readyBoard);
                     sudokuGame.sudokuProcessor(SudokuGame.COLUMN, 9, SudokuBoard.readyBoard);
             }
+            System.out.println(sudokuBoard.toString());
             gameFinished = sudokuGame.resolveSudoku();
 
         }
