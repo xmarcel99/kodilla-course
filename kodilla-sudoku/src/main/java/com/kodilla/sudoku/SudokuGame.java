@@ -7,6 +7,7 @@ public class SudokuGame {
     public static String ROW = "ROW";
     public static String COLUMN = "COLUMN";
     public static List<Integer> coordinatesFromRunner = new ArrayList<>();
+
     public boolean resolveSudoku() {
         int counter = 0;
         for (SudokuElement[] x : SudokuBoard.readyBoard) {
@@ -56,30 +57,25 @@ public class SudokuGame {
         for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
             for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
                 if (rowOrColumn.equals(ROW)) {
-                    xTable = j;
-                    yTable = i;
-                } else if (rowOrColumn.equals(COLUMN)) {
                     xTable = i;
                     yTable = j;
+                } else if (rowOrColumn.equals(COLUMN)) {
+                    xTable = j;
+                    yTable = i;
                 }
 
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
                         for (SudokuElement x : SudokuBoard.boardRow.get(xTable).getRow()) {
                             if (x.hashCode() != table[xTable][yTable].hashCode()) {
-                                if (x.getValue() == number) {
-                                    table[xTable][yTable].getPossibleValues().remove(number);
-                                    if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                                        table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
-                                    }
+                                if (table[xTable][yTable].getPossibleValues().size() == 1) {
+                                    table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                                 }
+
                                 if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
                                     throw new NotEnoughOptionsException();
                                 }
                             }
-                        }
-                        if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                            table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                         }
                     }
                 }
@@ -98,21 +94,21 @@ public class SudokuGame {
         int y = sudokuElement.getY();
         if (x >= 0 && x < 3 && y >= 0 && y < 3) {
             squareNumber = 1;
-        } else if (x >=3 && x < 6 && y >= 0 && y <3) {
-            squareNumber  = 2;
-        }else if (x >= 6 && x < 8 && y >= 0 && y <3) {
+        } else if (x >= 3 && x < 6 && y >= 0 && y < 3) {
+            squareNumber = 2;
+        } else if (x >= 6 && x < 8 && y >= 0 && y < 3) {
             squareNumber = 3;
-        }else if (x >= 0 && x < 3 && y >=3 && y <6) {
+        } else if (x >= 0 && x < 3 && y >= 3 && y < 6) {
             squareNumber = 4;
-        } else if (x >=3 && x < 6 && y >=3 && y <6) {
-            squareNumber  = 5;
-        }else if(x >= 6 && x < 8 && y >=3 && y <6) {
+        } else if (x >= 3 && x < 6 && y >= 3 && y < 6) {
+            squareNumber = 5;
+        } else if (x >= 6 && x < 8 && y >= 3 && y < 6) {
             squareNumber = 6;
-        } else if (x >= 0 && x < 3 && y >=6 && y<9) {
+        } else if (x >= 0 && x < 3 && y >= 6 && y < 9) {
             squareNumber = 7;
-        } else if (x >=3 && x < 6 && y >=6 && y<9) {
+        } else if (x >= 3 && x < 6 && y >= 6 && y < 9) {
             squareNumber = 8;
-        } else if (x >= 6 && x < 8 && y >=6 && y<9) {
+        } else if (x >= 6 && x < 8 && y >= 6 && y < 9) {
             squareNumber = 9;
         }
 
