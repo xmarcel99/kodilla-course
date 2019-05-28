@@ -21,12 +21,21 @@ public class SudokuRunner {
                 for (String x : sudokuNumberAndCoordinates) {
                     Integer number = Integer.parseInt(x);
                     coordinates.add(number);
+                    SudokuGame.coordinatesFromRunner.add(number);
                 }
 
                 for (SudokuElement[] y : SudokuBoard.readyBoard) {
                     for(SudokuElement x : y) {
                         if (x.getX() + 1 == coordinates.get(1) && x.getY() + 1 == coordinates.get(0)) {
                             x.setValue(coordinates.get(2));
+                            x.getPossibleValues().clear();
+                            for(SudokuElement g : y) {
+                                g.getPossibleValues().remove(coordinates.get(2));
+                            }
+                            for(int i = 0; i < 9; i ++) {
+                                SudokuBoard.readyBoard[i][x.getX() ].getPossibleValues().remove(coordinates.get(2));
+                            }
+                            SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(x);
                         }
                     }
                 }

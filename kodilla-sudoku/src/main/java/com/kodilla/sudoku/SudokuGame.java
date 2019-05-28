@@ -1,9 +1,12 @@
 package com.kodilla.sudoku;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SudokuGame {
     public static String ROW = "ROW";
     public static String COLUMN = "COLUMN";
-
+    public static List<Integer> coordinatesFromRunner = new ArrayList<>();
     public boolean resolveSudoku() {
         int counter = 0;
         for (SudokuElement[] x : SudokuBoard.readyBoard) {
@@ -19,6 +22,7 @@ public class SudokuGame {
             return false;
         }
     }
+
 
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
         int conditionLoopVariableA = 9;
@@ -58,21 +62,24 @@ public class SudokuGame {
                     xTable = i;
                     yTable = j;
                 }
+
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
-                        if (SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
-                            table[xTable][yTable].getPossibleValues().remove(number);
-                            if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                                table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
-                            }
-                        } else if (!SudokuBoard.boardRow.get(xTable).getRow().contains(number)) {
-                            for (SudokuElement element : SudokuBoard.boardRow.get(xTable).getRow()) {
-                                if (!element.getPossibleValues().contains(number)) {
-                                    table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(number));
+                        for (SudokuElement x : SudokuBoard.boardRow.get(xTable).getRow()) {
+                            if (x.hashCode() != table[xTable][yTable].hashCode()) {
+                                if (x.getValue() == number) {
+                                    table[xTable][yTable].getPossibleValues().remove(number);
+                                    if (table[xTable][yTable].getPossibleValues().size() == 1) {
+                                        table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
+                                    }
+                                }
+                                if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
+                                    throw new NotEnoughOptionsException();
                                 }
                             }
-                        } else if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
-                            throw new NotEnoughOptionsException();
+                        }
+                        if (table[xTable][yTable].getPossibleValues().size() == 1) {
+                            table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                         }
                     }
                 }
@@ -80,15 +87,62 @@ public class SudokuGame {
         }
     }
 
-    public static int countOfEmptyPlaces() {
-        int counter = 0;
-        for (SudokuElement[] x : SudokuBoard.readyBoard) {
-            for (SudokuElement y : x) {
-                if (y.getValue() == SudokuElement.EMPTY) {
-                    counter++;
-                }
+    public static void delateNotAllowedNumbersFromCellsAfterMove(SudokuElement sudokuElement) {
+        int squareNumber = 0;
+        int conditionLoopVariableA = 9;
+        int conditionLoopVariableB = 9;
+        int loopOperatingVariableA = 0;
+        int loopOperatingVariableB = 0;
+
+        int x = sudokuElement.getX();
+        int y = sudokuElement.getY();
+        if (x >= 0 && x < 3 && y >= 0 && y < 3) {
+            squareNumber = 1;
+        } else if (x >=3 && x < 6 && y >= 0 && y <3) {
+            squareNumber  = 2;
+        }else if (x >= 6 && x < 8 && y >= 0 && y <3) {
+            squareNumber = 3;
+        }else if (x >= 0 && x < 3 && y >=3 && y <6) {
+            squareNumber = 4;
+        } else if (x >=3 && x < 6 && y >=3 && y <6) {
+            squareNumber  = 5;
+        }else if(x >= 6 && x < 8 && y >=3 && y <6) {
+            squareNumber = 6;
+        } else if (x >= 0 && x < 3 && y >=6 && y<9) {
+            squareNumber = 7;
+        } else if (x >=3 && x < 6 && y >=6 && y<9) {
+            squareNumber = 8;
+        } else if (x >= 6 && x < 8 && y >=6 && y<9) {
+            squareNumber = 9;
+        }
+
+        if (squareNumber == 1 || squareNumber == 4 || squareNumber == 7) {
+            loopOperatingVariableA = 0;
+            conditionLoopVariableA = 3;
+        } else if (squareNumber == 2 || squareNumber == 5 || squareNumber == 8) {
+            loopOperatingVariableA = 3;
+            conditionLoopVariableA = 6;
+        } else if (squareNumber == 3 || squareNumber == 6 | squareNumber == 9) {
+            loopOperatingVariableA = 6;
+            conditionLoopVariableA = 9;
+        }
+        if (squareNumber == 1 || squareNumber == 2 || squareNumber == 3) {
+            loopOperatingVariableB = 0;
+            conditionLoopVariableB = 3;
+        } else if (squareNumber == 4 || squareNumber == 5 || squareNumber == 6) {
+            loopOperatingVariableB = 3;
+            conditionLoopVariableB = 6;
+        } else if (squareNumber == 7 || squareNumber == 8 || squareNumber == 9) {
+            loopOperatingVariableB = 6;
+            conditionLoopVariableB = 9;
+        }
+        for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
+            for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
+                SudokuBoard.readyBoard[i][j].getPossibleValues().remove(coordinatesFromRunner.get(2));
+                SudokuBoard.readyBoard[j][i].getPossibleValues().remove(coordinatesFromRunner.get(2));
             }
         }
-        return counter;
     }
+
 }
+
