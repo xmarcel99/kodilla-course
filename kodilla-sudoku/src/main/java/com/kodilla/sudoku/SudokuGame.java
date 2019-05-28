@@ -54,6 +54,9 @@ public class SudokuGame {
                 conditionLoopVariableB = 9;
             }
         }
+        int counterOfEmptyCells = 0;
+        int counterOfTheSameNumber = 0;
+        int loopNumber = 0;
         for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
             for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
                 if (rowOrColumn.equals(ROW)) {
@@ -63,22 +66,29 @@ public class SudokuGame {
                     xTable = j;
                     yTable = i;
                 }
-
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
+                        loopNumber = number;
                         for (SudokuElement x : SudokuBoard.boardRow.get(xTable).getRow()) {
                             if (x.hashCode() != table[xTable][yTable].hashCode()) {
+                                counterOfEmptyCells++;
                                 if (table[xTable][yTable].getPossibleValues().size() == 1) {
                                     table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                                 }
-
+                                if(!x.getPossibleValues().contains(number)) {
+                                    counterOfTheSameNumber ++;
+                                }
                                 if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
                                     throw new NotEnoughOptionsException();
                                 }
                             }
                         }
+
                     }
                 }
+            }
+            if(counterOfEmptyCells == counterOfTheSameNumber) {
+                table[xTable][yTable].setValue(loopNumber);
             }
         }
     }
