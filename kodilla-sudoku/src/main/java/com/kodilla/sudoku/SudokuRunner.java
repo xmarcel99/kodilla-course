@@ -36,7 +36,7 @@ public class SudokuRunner {
                         }
                     }
                 }
-                SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(SudokuBoard.readyBoard[SudokuGame.coordinatesFromRunner.get(0)][SudokuGame.coordinatesFromRunner.get(1)]);
+                SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(SudokuBoard.readyBoard[SudokuGame.coordinatesFromRunner.get(0)-1][SudokuGame.coordinatesFromRunner.get(1)-1]);
                 SudokuGame.coordinatesFromRunner.clear();
                 System.out.println(sudokuBoard.toString());
             } else {

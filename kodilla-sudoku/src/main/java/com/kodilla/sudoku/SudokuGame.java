@@ -95,30 +95,30 @@ public class SudokuGame {
 
     public static void delateNotAllowedNumbersFromCellsAfterMove(SudokuElement sudokuElement) {
         int squareNumber = 50;
-        int conditionLoopVariableA = 9;
-        int conditionLoopVariableB = 9;
+        int conditionLoopVariableA = 0;
+        int conditionLoopVariableB = 00;
         int loopOperatingVariableA = 0;
         int loopOperatingVariableB = 0;
 
-        int x =sudokuElement.getY()-1;
-        int y = sudokuElement.getX()-1;
+        int x =sudokuElement.getY();
+        int y = sudokuElement.getX();
         if (x >= 0 && x < 3 && y >= 0 && y < 3) {
             squareNumber = 1;
         } else if (x >= 3 && x < 6 && y >= 0 && y < 3) {
             squareNumber = 2;
-        } else if (x >= 6 && x < 8 && y >= 0 && y < 3) {
+        } else if (x >= 6 && x < 9 && y >= 0 && y < 3) {
             squareNumber = 3;
         } else if (x >= 0 && x < 3 && y >= 3 && y < 6) {
             squareNumber = 4;
         } else if (x >= 3 && x < 6 && y >= 3 && y < 6) {
             squareNumber = 5;
-        } else if (x >= 6 && x < 8 && y >= 3 && y < 6) {
+        } else if (x >= 6 && x < 9 && y >= 3 && y < 6) {
             squareNumber = 6;
         } else if (x >= 0 && x < 3 && y >= 6 && y < 9) {
             squareNumber = 7;
         } else if (x >= 3 && x < 6 && y >= 6 && y < 9) {
             squareNumber = 8;
-        } else if (x >= 6 && x < 8 && y >= 6 && y < 9) {
+        } else if (x >= 6 && x < 9 && y >= 6 && y < 9) {
             squareNumber = 9;
         }
 
