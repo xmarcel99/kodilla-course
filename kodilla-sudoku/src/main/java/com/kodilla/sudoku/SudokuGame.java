@@ -26,39 +26,16 @@ public class SudokuGame {
 
 
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
-        int conditionLoopVariableA = 9;
-        int conditionLoopVariableB = 9;
-        int loopOperatingVariableA = 0;
-        int loopOperatingVariableB = 0;
         int xTable = 0;
         int yTable = 0;
-        if (squareNumber != 0) {
-            if (squareNumber == 1 || squareNumber == 4 || squareNumber == 7) {
-                loopOperatingVariableA = 0;
-                conditionLoopVariableA = 3;
-            } else if (squareNumber == 2 || squareNumber == 5 || squareNumber == 8) {
-                loopOperatingVariableA = 3;
-                conditionLoopVariableA = 6;
-            } else if (squareNumber == 3 || squareNumber == 6 | squareNumber == 9) {
-                loopOperatingVariableA = 6;
-                conditionLoopVariableA = 9;
-            }
-            if (squareNumber == 1 || squareNumber == 2 || squareNumber == 3) {
-                loopOperatingVariableB = 0;
-                conditionLoopVariableB = 3;
-            } else if (squareNumber == 4 || squareNumber == 5 || squareNumber == 6) {
-                loopOperatingVariableB = 3;
-                conditionLoopVariableB = 6;
-            } else if (squareNumber == 7 || squareNumber == 8 || squareNumber == 9) {
-                loopOperatingVariableB = 6;
-                conditionLoopVariableB = 9;
-            }
-        }
+
+        SquareDTo squareDTo = getLoopVariables(squareNumber);
+
         int counterOfEmptyCells = 0;
         int counterOfTheSameNumber = 0;
         int loopNumber = 0;
-        for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
-            for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
+        for (int i = squareDTo.getLoopOperatingVariableA(); i < squareDTo.getConditionLoopVariableA(); i++) {
+            for (int j = squareDTo.getLoopOperatingVariableB(); j < squareDTo.getConditionLoopVariableB(); j++) {
                 if (rowOrColumn.equals(ROW)) {
                     xTable = i;
                     yTable = j;
@@ -75,8 +52,8 @@ public class SudokuGame {
                                 if (table[xTable][yTable].getPossibleValues().size() == 1) {
                                     table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
                                 }
-                                if(!x.getPossibleValues().contains(number)) {
-                                    counterOfTheSameNumber ++;
+                                if (!x.getPossibleValues().contains(number)) {
+                                    counterOfTheSameNumber++;
                                 }
                                 if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
                                     throw new NotEnoughOptionsException();
@@ -87,20 +64,16 @@ public class SudokuGame {
                     }
                 }
             }
-            if(counterOfEmptyCells == counterOfTheSameNumber) {
+            if (counterOfEmptyCells == counterOfTheSameNumber) {
                 table[xTable][yTable].setValue(loopNumber);
             }
         }
     }
 
     public static void delateNotAllowedNumbersFromCellsAfterMove(SudokuElement sudokuElement) {
-        int squareNumber = 50;
-        int conditionLoopVariableA = 0;
-        int conditionLoopVariableB = 00;
-        int loopOperatingVariableA = 0;
-        int loopOperatingVariableB = 0;
+        int squareNumber = 999;
 
-        int x =sudokuElement.getY();
+        int x = sudokuElement.getY();
         int y = sudokuElement.getX();
         if (x >= 0 && x < 3 && y >= 0 && y < 3) {
             squareNumber = 1;
@@ -121,6 +94,19 @@ public class SudokuGame {
         } else if (x >= 6 && x < 9 && y >= 6 && y < 9) {
             squareNumber = 9;
         }
+        SquareDTo squareDTo = getLoopVariables(squareNumber);
+        for (int i = squareDTo.getLoopOperatingVariableA(); i < squareDTo.getConditionLoopVariableA(); i++) {
+            for (int j = squareDTo.getLoopOperatingVariableB(); j < squareDTo.getConditionLoopVariableB(); j++) {
+                SudokuBoard.readyBoard[i][j].getPossibleValues().remove(coordinatesFromRunner.get(2));
+            }
+        }
+    }
+
+    private static SquareDTo getLoopVariables(int squareNumber) {
+        int conditionLoopVariableA = 9;
+        int conditionLoopVariableB = 9;
+        int loopOperatingVariableA = 0;
+        int loopOperatingVariableB = 0;
 
         if (squareNumber == 1 || squareNumber == 4 || squareNumber == 7) {
             loopOperatingVariableA = 0;
@@ -142,12 +128,7 @@ public class SudokuGame {
             loopOperatingVariableB = 6;
             conditionLoopVariableB = 9;
         }
-        for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
-            for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
-                SudokuBoard.readyBoard[i][j].getPossibleValues().remove(coordinatesFromRunner.get(2));
-            }
-        }
+        return new SquareDTo(conditionLoopVariableA, conditionLoopVariableB, loopOperatingVariableA, loopOperatingVariableB);
     }
-
 }
 
