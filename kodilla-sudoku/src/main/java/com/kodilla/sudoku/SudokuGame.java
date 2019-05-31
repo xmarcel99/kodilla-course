@@ -24,13 +24,10 @@ public class SudokuGame {
         }
     }
 
-
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
         int xTable = 0;
         int yTable = 0;
-
         SquareDTo squareDTo = getLoopVariables(squareNumber);
-
         int counterOfEmptyCells = 0;
         int counterOfTheSameNumber = 0;
         int loopNumber = 0;
@@ -72,7 +69,6 @@ public class SudokuGame {
 
     public static void delateNotAllowedNumbersFromCellsAfterMove(SudokuElement sudokuElement) {
         int squareNumber = 999;
-
         int x = sudokuElement.getY();
         int y = sudokuElement.getX();
         if (x >= 0 && x < 3 && y >= 0 && y < 3) {
@@ -101,7 +97,6 @@ public class SudokuGame {
             }
         }
     }
-
     private static SquareDTo getLoopVariables(int squareNumber) {
         int conditionLoopVariableA = 9;
         int conditionLoopVariableB = 9;
