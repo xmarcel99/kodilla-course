@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class SudokuRunner {
     public static void main(String[] args) throws  NotEnoughOptionsException{
         Scanner userInput = new Scanner(System.in);
-        List<Integer> coordinates = new ArrayList<>();
         boolean gameFinished = false;
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createContent();
@@ -20,28 +19,27 @@ public class SudokuRunner {
 
                 for (String x : sudokuNumberAndCoordinates) {
                     Integer number = Integer.parseInt(x);
-                    coordinates.add(number);
                     SudokuGame.coordinatesFromRunner.add(number);
                 }
-
                 for (SudokuElement[] y : SudokuBoard.readyBoard) {
                     for(SudokuElement x : y) {
-                        if (x.getX() + 1 == coordinates.get(1) && x.getY() + 1 == coordinates.get(0)) {
-                            x.setValue(coordinates.get(2));
+
+                        if (x.getX() + 1 == SudokuGame.coordinatesFromRunner.get(1) && x.getY() + 1 == SudokuGame.coordinatesFromRunner.get(0)) {
+                            x.setValue(SudokuGame.coordinatesFromRunner.get(2));
                             x.getPossibleValues().clear();
                             for(SudokuElement g : y) {
-                                g.getPossibleValues().remove(coordinates.get(2));
+                                g.getPossibleValues().remove(SudokuGame.coordinatesFromRunner.get(2));
                             }
                             for(int i = 0; i < 9; i ++) {
-                                SudokuBoard.readyBoard[i][x.getX() ].getPossibleValues().remove(coordinates.get(2));
+                                SudokuBoard.readyBoard[i][x.getX() ].getPossibleValues().remove(SudokuGame.coordinatesFromRunner.get(2));
                             }
-                            SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(x);
                         }
                     }
                 }
-                coordinates.clear();
+                SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(SudokuBoard.readyBoard[SudokuGame.coordinatesFromRunner.get(0)][SudokuGame.coordinatesFromRunner.get(1)]);
+                SudokuGame.coordinatesFromRunner.clear();
                 System.out.println(sudokuBoard.toString());
-            } else if (numberForSudoku.equals("SUDOKU")){
+            } else {
                     sudokuGame.sudokuProcessor(SudokuGame.ROW, 0, SudokuBoard.readyBoard);
                     sudokuGame.sudokuProcessor(SudokuGame.COLUMN, 0, SudokuBoard.readyBoard);
                     sudokuGame.sudokuProcessor(SudokuGame.ROW, 1, SudokuBoard.readyBoard);
@@ -63,7 +61,7 @@ public class SudokuRunner {
                     sudokuGame.sudokuProcessor(SudokuGame.ROW, 9, SudokuBoard.readyBoard);
                     sudokuGame.sudokuProcessor(SudokuGame.COLUMN, 9, SudokuBoard.readyBoard);
             }
-            System.out.println(sudokuBoard.toString());
+            //System.out.println(sudokuBoard.toString());
             gameFinished = sudokuGame.resolveSudoku();
 
         }

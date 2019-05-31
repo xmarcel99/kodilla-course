@@ -94,14 +94,14 @@ public class SudokuGame {
     }
 
     public static void delateNotAllowedNumbersFromCellsAfterMove(SudokuElement sudokuElement) {
-        int squareNumber = 0;
+        int squareNumber = 50;
         int conditionLoopVariableA = 9;
         int conditionLoopVariableB = 9;
         int loopOperatingVariableA = 0;
         int loopOperatingVariableB = 0;
 
-        int x = sudokuElement.getX();
-        int y = sudokuElement.getY();
+        int x =sudokuElement.getY()-1;
+        int y = sudokuElement.getX()-1;
         if (x >= 0 && x < 3 && y >= 0 && y < 3) {
             squareNumber = 1;
         } else if (x >= 3 && x < 6 && y >= 0 && y < 3) {
@@ -145,7 +145,6 @@ public class SudokuGame {
         for (int i = loopOperatingVariableA; i < conditionLoopVariableA; i++) {
             for (int j = loopOperatingVariableB; j < conditionLoopVariableB; j++) {
                 SudokuBoard.readyBoard[i][j].getPossibleValues().remove(coordinatesFromRunner.get(2));
-                SudokuBoard.readyBoard[j][i].getPossibleValues().remove(coordinatesFromRunner.get(2));
             }
         }
     }
