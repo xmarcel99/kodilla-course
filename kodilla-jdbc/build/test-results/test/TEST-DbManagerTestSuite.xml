@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DbManagerTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-27T09:13:23" hostname="xMarcel99" time="1.283">
+<testsuite name="DbManagerTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-03T08:07:50" hostname="xMarcel99" time="4.182">
   <properties/>
-  <testcase name="testSelectUsersAndPosts" classname="DbManagerTestSuite" time="1.283"/>
-  <system-out><![CDATA[Humans with more or equals 2 post :
-John, Smith
+  <testcase name="testSelectUsers" classname="DbManagerTestSuite" time="4.182"/>
+  <system-out><![CDATA[1, John, Smith
+2, Zachary, Lee
+3, Stephanie, Kovalsky
+4, Thomas, Landgren
+5, John, Thomson
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

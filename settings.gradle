@@ -8,4 +8,5 @@ include 'kodilla-spring-intro2'
 include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-sudoku'
+include 'repeat-module'
 
