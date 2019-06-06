@@ -15,7 +15,6 @@ public class User  {
     public User() {
 
     }
-
     public User(int age, String firstName, String lastname) {
         this.age = age;
         this.firstName = firstName;

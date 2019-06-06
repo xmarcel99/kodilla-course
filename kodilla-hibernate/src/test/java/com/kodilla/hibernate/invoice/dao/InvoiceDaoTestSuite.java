@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.Optional;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,10 +31,11 @@ public class InvoiceDaoTestSuite {
         item.setInvoice(invoice);
         //When
         invoiceDao.save(invoice);
-        Optional resultInvoice = invoiceDao.findById(invoice.getId());
+        List<Invoice> resultList = invoiceDao.findByNumber("10/12/2019");
+        int resultSizeList = resultList.size();
         //Then
-        Assert.assertNotEquals(invoice,resultInvoice);
+        Assert.assertEquals(1,resultSizeList);
         //Clean up
-        invoiceDao.deleteById(invoice.getId());
+        invoiceDao.deleteById(resultList.get(0).getId());
     }
 }
