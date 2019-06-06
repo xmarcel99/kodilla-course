@@ -33,5 +33,7 @@ public class InvoiceDaoTestSuite {
         int resultId = invoice.getId();
         //Then
         Assert.assertNotEquals(100,resultId);
+        //Clean up
+        invoiceDao.deleteById(resultId);
     }
 }
