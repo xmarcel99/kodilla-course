@@ -31,7 +31,7 @@ public class TaskListDaoTestSuite {
         //Then
         Assert.assertEquals(1, resultSize);
         //Clean up
-        taskListDao.deleteById(id);
+        //taskListDao.deleteById(id);
     }
 
     @Test
@@ -55,6 +55,6 @@ public class TaskListDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        taskListDao.deleteById(id);
+        //taskListDao.deleteById(id);
     }
 }

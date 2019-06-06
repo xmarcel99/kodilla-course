@@ -21,16 +21,17 @@ public class InvoiceDaoTestSuite {
     @Test
     public void testInvoiceDaoSave() {
         //Given
-        Invoice invoice = new Invoice("10/24/2019");
-        Item laptop = new Item(new BigDecimal(2400),1,new BigDecimal(1400));
-        Product screen = new Product("screen");
-        screen.getItems().add(laptop);
-        laptop.setProduct(screen);
-        invoice.getItems().add(laptop);
+        Item item = new Item(new BigDecimal(100),1,new BigDecimal(70));
+        Product product = new Product("Screen");
+        item.setProduct(product);
+        product.getItems().add(item);
+        Invoice invoice = new Invoice("10/12/2019");
+        invoice.getItems().add(item);
+        item.setInvoice(invoice);
         //When
         invoiceDao.save(invoice);
         int resultId = invoice.getId();
         //Then
-        Assert.assertNotEquals(0,resultId);
+        Assert.assertNotEquals(100,resultId);
     }
 }

@@ -23,7 +23,7 @@ public class Item {
         this.quantity = quantity;
         this.value = value;
     }
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
@@ -39,7 +39,7 @@ public class Item {
     public int getId() {
         return id;
     }
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -76,4 +76,5 @@ public class Item {
     private void setValue(BigDecimal value) {
         this.value = value;
     }
+
 }
