@@ -2,6 +2,8 @@ package com.kodilla.hibernate.again;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -11,6 +13,7 @@ public class User  {
     private String firstName;
     private String lastname;
     private UserPassword userPassword;
+    private List<Post> postList = new ArrayList<>();
 
     public User() {
 
@@ -64,5 +67,18 @@ public class User  {
 
     private void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+    @OneToMany(
+            targetEntity = Post.class,
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Post> getPostList() {
+        return postList;
+    }
+
+    public void setPostList(List<Post> postList) {
+        this.postList = postList;
     }
 }

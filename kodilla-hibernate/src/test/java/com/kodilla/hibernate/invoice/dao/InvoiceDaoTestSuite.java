@@ -33,9 +33,11 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
         List<Invoice> resultList = invoiceDao.findByNumber("10/12/2019");
         int resultSizeList = resultList.size();
+        Item resultItem = resultList.get(0).getItems().get(0);
         //Then
+        Assert.assertEquals(item.getId(),resultItem.getId());
         Assert.assertEquals(1,resultSizeList);
         //Clean up
-        invoiceDao.deleteById(resultList.get(0).getId());
+        invoiceDao.deleteById(invoice.getId());
     }
 }

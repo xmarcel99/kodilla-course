@@ -23,7 +23,7 @@ public class Item {
         this.quantity = quantity;
         this.value = value;
     }
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
@@ -39,7 +39,7 @@ public class Item {
     public int getId() {
         return id;
     }
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
