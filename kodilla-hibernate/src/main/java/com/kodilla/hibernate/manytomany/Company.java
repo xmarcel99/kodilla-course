@@ -4,9 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedNativeQuery(
+        name = "Company.findCompanyByName",
+        query = "select*from companies where substring(company_name,1,3) = :userInput ",
+        resultClass = Company.class
+)
 @Entity
-@Table(name = "COMPANIES")
+@Table(name = "companies")
 public class Company {
     private int id;
     private String name;
@@ -31,13 +35,13 @@ public class Company {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "COMPANY_ID", unique = true)
+    @Column(name = "company_id", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "COMPANY_NAME")
+    @Column(name = "company_name")
     public String getName() {
         return name;
     }
