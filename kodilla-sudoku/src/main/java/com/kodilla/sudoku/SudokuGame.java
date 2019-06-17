@@ -8,16 +8,16 @@ public class SudokuGame {
     public static String COLUMN = "COLUMN";
     public static List<Integer> coordinatesFromRunner = new ArrayList<>();
 
-    public boolean resolveSudoku() {
-        int counter = 0;
+    public boolean isSudokuResolved() {
+        int counterOfEmptyPlaces = 0;
         for (SudokuElement[] x : SudokuBoard.readyBoard) {
             for (SudokuElement y : x) {
                 if (y.getValue() == SudokuElement.EMPTY) {
-                    counter++;
+                    counterOfEmptyPlaces++;
                 }
             }
         }
-        if (counter == 0) {
+        if (counterOfEmptyPlaces == 0) {
             return true;
         } else {
             return false;

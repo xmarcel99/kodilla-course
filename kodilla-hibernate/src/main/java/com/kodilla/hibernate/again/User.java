@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "USERS")
+@Access(AccessType.FIELD)
 public class User  {
     private int id;
     private int age;
