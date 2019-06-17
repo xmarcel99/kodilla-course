@@ -27,6 +27,7 @@ public class SudokuGame {
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
         int xTable = 0;
         int yTable = 0;
+        int rowNumber = 0;
         SquareDTo squareDTo = getLoopVariables(squareNumber);
         int counterOfEmptyCells = 0;
         int counterOfTheSameNumber = 0;
@@ -40,10 +41,11 @@ public class SudokuGame {
                     xTable = j;
                     yTable = i;
                 }
+                rowNumber = i;
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
                         loopNumber = number;
-                        for (SudokuElement x : SudokuBoard.boardRow.get(xTable).getRow()) {
+                        for (SudokuElement x : SudokuBoard.boardRow.get(rowNumber).getRow()) {
                             if (x.hashCode() != table[xTable][yTable].hashCode()) {
                                 counterOfEmptyCells++;
                                 if (table[xTable][yTable].getPossibleValues().size() == 1) {
@@ -52,7 +54,7 @@ public class SudokuGame {
                                 if (!x.getPossibleValues().contains(number)) {
                                     counterOfTheSameNumber++;
                                 }
-                                if (SudokuBoard.boardRow.get(xTable).getRow().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
+                                if (x.getPossibleValues().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
                                     throw new NotEnoughOptionsException();
                                 }
                             }
