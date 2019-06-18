@@ -25,6 +25,10 @@ public class SudokuGame {
     }
 
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
+        String stringXTable = "";
+        String stringYTable = "";
+        String stringValue = "";
+        String result = "";
         int xTable = 0;
         int yTable = 0;
         int rowNumber = 0;
@@ -43,21 +47,22 @@ public class SudokuGame {
                 }
                 rowNumber = i;
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
+                    if (table[xTable][yTable].getPossibleValues().size() == 1) {
+                        stringXTable = Integer.toString(xTable+1);
+                        stringYTable = Integer.toString(yTable+1);
+                        stringValue = Integer.toString(table[xTable][yTable].getPossibleValues().get(0));
+                        result = stringXTable + "," + stringYTable + "," + stringValue;
+                        FillingSudokuGap.fillingGap(result, SudokuRunner.sudokuBoard);
+                    }
+
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
-                        counterOfEmptyCells = 0;
-                        counterOfTheSameNumber = 0;
-                        loopNumber = number;
                         for (SudokuElement x : SudokuBoard.boardRow.get(rowNumber).getRow()) {
                             if (!x.equals(table[xTable][yTable])) {
+                                counterOfEmptyCells = 0;
+                                counterOfTheSameNumber = 0;
+                                loopNumber = number;
                                 counterOfEmptyCells++;
-                                if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                                    String stringXTable = Integer.toString(xTable);
-                                    String stringYTable = Integer.toString(yTable);
-                                    String stringValue = Integer.toString(table[xTable][yTable].getPossibleValues().get(0));
-                                    String result = stringXTable + "," + stringYTable + "," + stringValue;
-                                    FillingSudokuGap.fillingGap(result,SudokuRunner.sudokuBoard);
-                                }
-                                if (!x.getPossibleValues().contains(number)) {
+                                if (!x.getPossibleValues().contains(number) && x.getValue() != number) {
                                     counterOfTheSameNumber++;
                                 }
                                 if (x.getPossibleValues().contains(number) && table[xTable][yTable].getPossibleValues().size() == 1) {
@@ -70,7 +75,11 @@ public class SudokuGame {
                 }
             }
             if (counterOfEmptyCells == counterOfTheSameNumber) {
-                table[xTable][yTable].setValue(loopNumber);
+                stringXTable = Integer.toString(xTable+1);
+                stringYTable = Integer.toString(yTable+1);
+                stringValue = Integer.toString(loopNumber);
+                result = stringXTable + "," + stringYTable + "," + stringValue;
+                FillingSudokuGap.fillingGap(result, SudokuRunner.sudokuBoard);
             }
         }
     }
