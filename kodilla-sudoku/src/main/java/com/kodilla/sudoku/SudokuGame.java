@@ -48,7 +48,7 @@ public class SudokuGame {
                         counterOfTheSameNumber = 0;
                         loopNumber = number;
                         for (SudokuElement x : SudokuBoard.boardRow.get(rowNumber).getRow()) {
-                            if (x.hashCode() != table[xTable][yTable].hashCode()) {
+                            if (!x.equals(table[xTable][yTable])) {
                                 counterOfEmptyCells++;
                                 if (table[xTable][yTable].getPossibleValues().size() == 1) {
                                     String stringXTable = Integer.toString(xTable);
