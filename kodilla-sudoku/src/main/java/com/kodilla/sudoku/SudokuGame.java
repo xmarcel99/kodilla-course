@@ -25,10 +25,10 @@ public class SudokuGame {
     }
 
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
-        String stringXTable = "";
-        String stringYTable = "";
-        String stringValue = "";
-        String result = "";
+        String stringXTable ;
+        String stringYTable ;
+        String stringValue ;
+        String result ;
         int xTable = 0;
         int yTable = 0;
         int rowNumber = 0;
