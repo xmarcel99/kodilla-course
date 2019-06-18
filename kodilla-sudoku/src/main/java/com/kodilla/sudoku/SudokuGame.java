@@ -56,10 +56,10 @@ public class SudokuGame {
                     }
 
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
+                        counterOfEmptyCells = 0;
+                        counterOfTheSameNumber = 0;
                         for (SudokuElement x : SudokuBoard.boardRow.get(rowNumber).getRow()) {
                             if (!x.equals(table[xTable][yTable])) {
-                                counterOfEmptyCells = 0;
-                                counterOfTheSameNumber = 0;
                                 loopNumber = number;
                                 counterOfEmptyCells++;
                                 if (!x.getPossibleValues().contains(number) && x.getValue() != number) {
