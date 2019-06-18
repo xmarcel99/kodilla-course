@@ -3,10 +3,10 @@ package com.kodilla.sudoku;
 import java.util.Scanner;
 
 public class SudokuRunner {
+    static SudokuBoard sudokuBoard = new SudokuBoard();
     public static void main(String[] args) throws NotEnoughOptionsException {
         Scanner userInput = new Scanner(System.in);
         boolean gameFinished = false;
-        SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createContent();
         FillingSudokuGap.fillingGap("1,2,3", sudokuBoard);
         FillingSudokuGap.fillingGap("1,6,4", sudokuBoard);

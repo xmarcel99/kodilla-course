@@ -44,12 +44,18 @@ public class SudokuGame {
                 rowNumber = i;
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
+                        counterOfEmptyCells = 0;
+                        counterOfTheSameNumber = 0;
                         loopNumber = number;
                         for (SudokuElement x : SudokuBoard.boardRow.get(rowNumber).getRow()) {
                             if (x.hashCode() != table[xTable][yTable].hashCode()) {
                                 counterOfEmptyCells++;
                                 if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                                    table[xTable][yTable].setValue(table[xTable][yTable].getPossibleValues().get(0));
+                                    String stringXTable = Integer.toString(xTable);
+                                    String stringYTable = Integer.toString(yTable);
+                                    String stringValue = Integer.toString(table[xTable][yTable].getPossibleValues().get(0));
+                                    String result = stringXTable + "," + stringYTable + "," + stringValue;
+                                    FillingSudokuGap.fillingGap(result,SudokuRunner.sudokuBoard);
                                 }
                                 if (!x.getPossibleValues().contains(number)) {
                                     counterOfTheSameNumber++;
@@ -99,6 +105,7 @@ public class SudokuGame {
             }
         }
     }
+
     private static SquareDTo getLoopVariables(int squareNumber) {
         int conditionLoopVariableA = 9;
         int conditionLoopVariableB = 9;
