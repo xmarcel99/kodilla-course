@@ -31,7 +31,7 @@ public class FillingSudokuGap {
         }
         SudokuGame.delateNotAllowedNumbersFromCellsAfterMove(SudokuBoard.readyBoard[SudokuGame.coordinatesFromRunner.get(0) - 1][SudokuGame.coordinatesFromRunner.get(1) - 1]);
         SudokuGame.coordinatesFromRunner.clear();
-        System.out.println(sudokuBoard.toString());
+        //System.out.println(sudokuBoard.toString());
     }
 
 }
