@@ -25,10 +25,10 @@ public class SudokuGame {
     }
 
     public void sudokuProcessor(String rowOrColumn, int squareNumber, SudokuElement[][] table) throws NotEnoughOptionsException {
-        String stringXTable ;
-        String stringYTable ;
-        String stringValue ;
-        String result ;
+        String stringXTable;
+        String stringYTable;
+        String stringValue;
+        String result;
         int xTable = 0;
         int yTable = 0;
         int rowNumber = 0;
@@ -48,13 +48,12 @@ public class SudokuGame {
                 rowNumber = i;
                 if (table[xTable][yTable].getValue() == SudokuElement.EMPTY) {
                     if (table[xTable][yTable].getPossibleValues().size() == 1) {
-                        stringXTable = Integer.toString(xTable+1);
-                        stringYTable = Integer.toString(yTable+1);
+                        stringXTable = Integer.toString(xTable + 1);
+                        stringYTable = Integer.toString(yTable + 1);
                         stringValue = Integer.toString(table[xTable][yTable].getPossibleValues().get(0));
                         result = stringXTable + "," + stringYTable + "," + stringValue;
                         FillingSudokuGap.fillingGap(result, SudokuRunner.sudokuBoard);
                     }
-
                     for (Integer number : SudokuBoard.readyBoard[xTable][yTable].getPossibleValues()) {
                         counterOfEmptyCells = 0;
                         counterOfTheSameNumber = 0;
@@ -74,9 +73,9 @@ public class SudokuGame {
                     }
                 }
             }
-            if (counterOfEmptyCells == counterOfTheSameNumber) {
-                stringXTable = Integer.toString(xTable+1);
-                stringYTable = Integer.toString(yTable+1);
+            if (counterOfEmptyCells == counterOfTheSameNumber && counterOfEmptyCells != 0) {
+                stringXTable = Integer.toString(xTable + 1);
+                stringYTable = Integer.toString(yTable + 1);
                 stringValue = Integer.toString(loopNumber);
                 result = stringXTable + "," + stringYTable + "," + stringValue;
                 FillingSudokuGap.fillingGap(result, SudokuRunner.sudokuBoard);

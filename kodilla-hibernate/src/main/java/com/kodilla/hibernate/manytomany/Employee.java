@@ -8,6 +8,11 @@ import java.util.List;
         name = "Employee.findEmployeeBySurname",
         query = "select e from Employee e where lastname = :lastname"
 )
+@NamedNativeQuery(
+        name = "Employee.findEmployeeByFragment",
+        query = "select*from employees where firstname like '%oh%'",
+        resultClass = Employee.class
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -47,7 +52,7 @@ public class Employee {
     }
 
     @NotNull
-    @Column(name = "FIRSTNAME")
+    @Column(name = "firstname")
     public String getFirstname() {
         return firstname;
     }
