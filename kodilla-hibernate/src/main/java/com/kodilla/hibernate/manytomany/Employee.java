@@ -10,7 +10,7 @@ import java.util.List;
 )
 @NamedNativeQuery(
         name = "Employee.findEmployeeByFragment",
-        query = "select*from employees where firstname like '%oh%'",
+        query = "select*from employees where firstname like Concat('%',:fragment,'%')",
         resultClass = Employee.class
 )
 @Entity

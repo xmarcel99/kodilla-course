@@ -12,7 +12,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.findCompanyByFragment",
-        query = "select*from companies where company_name like '%su%' ",
+        query = "select*from companies where company_name like Concat('%',:fragment,'%') ",
         resultClass = Company.class
 )
 @Entity

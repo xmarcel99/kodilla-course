@@ -33,7 +33,7 @@ public class CompanyAndEmployeeFacadeTest {
         companyDao.save(company);
         //When
         try {
-            companyAndEmployeeFacade.findByFragmentProcessor();
+            companyAndEmployeeFacade.findByFragmentProcessor("un","oh");
         } catch (CompanyAndEmployeeException e) {
             // business exception - should be handled in real application
         }
