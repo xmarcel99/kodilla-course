@@ -24,22 +24,18 @@ public class CompanyAndEmployeeFacade {
     private static Logger LOGGER = LoggerFactory.getLogger(CompanyAndEmployeeFacade.class);
 
 
-    public void findByFragmentProcessor(String fragmentOfCompanyName,String fragmentOfEmployeeFirstname) throws CompanyAndEmployeeException {
+    public List<Company> findCompanyByGivenFragment(String fragmentOfCompanyName) {
         LOGGER.info("Start finding company by fragment of the name...");
-        List<Company> companies = companyDao.findCompanyByFragment(fragmentOfCompanyName);
-        if (companies.size() == 0) {
-            LOGGER.error(CompanyAndEmployeeException.CANNOT_FIND_COMPANY_ERR);
-            throw new CompanyAndEmployeeException(CompanyAndEmployeeException.CANNOT_FIND_COMPANY_ERR);
-        }
-        LOGGER.info("System found " + companies.size() + " with given fragment of companies name");
+        List<Company> result = companyDao.findCompanyByFragment(fragmentOfCompanyName);
+        LOGGER.info("System found " + result.size() + " with given fragment of companies name : ");
+        return result;
+    }
 
+    public List<Employee> findEmployeeByGivenFragment( String fragmentOfEmployeeFirstname) {
         LOGGER.info("Start finding employees by given fragment of firstname");
-        List<Employee> employees = employeeDao.findEmployeeByFragment(fragmentOfEmployeeFirstname);
-        if (employees.size() == 0) {
-            LOGGER.error(CompanyAndEmployeeException.CANNOT_FIND_EMPLOYEE_ERR);
-            throw new CompanyAndEmployeeException(CompanyAndEmployeeException.CANNOT_FIND_EMPLOYEE_ERR);
-        }
-        LOGGER.info("System found " + employees.size() + " employees with given fragment of firstname");
+        List<Employee> result = employeeDao.findEmployeeByFragment(fragmentOfEmployeeFirstname);
+        LOGGER.info("System found " + result.size() + " employees with given fragment of firstname:");
+        return result;
     }
 }
 
