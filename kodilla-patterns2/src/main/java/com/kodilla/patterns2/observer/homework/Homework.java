@@ -3,12 +3,12 @@ package com.kodilla.patterns2.observer.homework;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KodillaStudent implements Observable {
+public class Homework implements Observable {
     private Teacher teacher;
     private List<String> homeworks;
     private String studentFirstname;
 
-    public KodillaStudent(String studentFirstname, Teacher teacher) {
+    public Homework(String studentFirstname, Teacher teacher) {
         this.teacher = teacher;
         this.homeworks = new ArrayList<>();
         this.studentFirstname = studentFirstname;

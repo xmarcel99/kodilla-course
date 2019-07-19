@@ -3,15 +3,15 @@ package com.kodilla.patterns2.observer.homework;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class KodillaStudentTestSuite {
+public class HomeworkTestSuite {
     @Test
     public void testUpdate() {
         //Given
         Teacher lincolnBurrows = new Teacher("Lincoln Borrows");
         Teacher johnSmith = new Teacher("John Smitch");
-        KodillaStudent michaelScofield = new KodillaStudent("Michael Scofield",lincolnBurrows);
-        KodillaStudent saraTencredi = new KodillaStudent("Sara Tencredi",lincolnBurrows);
-        KodillaStudent walterWhite = new KodillaStudent("Walter White",johnSmith);
+        Homework michaelScofield = new Homework("Michael Scofield",lincolnBurrows);
+        Homework saraTencredi = new Homework("Sara Tencredi",lincolnBurrows);
+        Homework walterWhite = new Homework("Walter White",johnSmith);
         //When
         michaelScofield.addTask("Create first Rest Api Controller");
         michaelScofield.addTask("Sending request to diffrent server");

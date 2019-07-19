@@ -9,8 +9,8 @@ public class Teacher implements Observator{
     }
 
     @Override
-    public void update(KodillaStudent kodillaStudent) {
-        System.out.println("New exercises to check from student: " + kodillaStudent.getStudentFirstname() +" for: " +firstname);
+    public void update(Homework homework) {
+        System.out.println("New exercises to check from student: " + homework.getStudentFirstname() +" for: " +firstname);
         updateCounter++;
     }
 
