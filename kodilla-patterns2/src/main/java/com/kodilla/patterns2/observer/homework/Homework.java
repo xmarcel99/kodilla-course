@@ -1,22 +1,22 @@
 package com.kodilla.patterns2.observer.homework;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Homework implements Observable {
     private Teacher teacher;
-    private List<String> homeworks;
+    private Deque<String> homeworks;
     private String studentFirstname;
 
     public Homework(String studentFirstname, Teacher teacher) {
         this.teacher = teacher;
-        this.homeworks = new ArrayList<>();
+        this.homeworks = new ArrayDeque<>();
         this.studentFirstname = studentFirstname;
     }
 
     @Override
     public void addTask(String task) {
-        homeworks.add(task);
+        homeworks.offerLast(task);
         notifyTeacher();
     }
 
@@ -25,15 +25,8 @@ public class Homework implements Observable {
         teacher.update(this);
     }
 
-    public List<String> getHomeworks() {
-        return homeworks;
-    }
-
     public String getStudentFirstname() {
         return studentFirstname;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
 }
