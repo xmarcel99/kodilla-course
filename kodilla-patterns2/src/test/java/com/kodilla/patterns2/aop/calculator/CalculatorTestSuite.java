@@ -62,7 +62,7 @@ public class CalculatorTestSuite {
     public void testFactorial() {
         //Given
         //When
-        BigDecimal result = calculator.factorial(new BigDecimal(1000));
+        BigDecimal result = calculator.factorial(new BigDecimal(1000),new BigDecimal(1));
         LOGGER.info("testing factorial method");
         System.out.println(result);
         //Then

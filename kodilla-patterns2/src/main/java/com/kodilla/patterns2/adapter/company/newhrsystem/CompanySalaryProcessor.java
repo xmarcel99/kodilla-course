@@ -14,4 +14,6 @@ public class CompanySalaryProcessor implements SalaryProcessor {
         }
         return sum;
     }
+
+
 }

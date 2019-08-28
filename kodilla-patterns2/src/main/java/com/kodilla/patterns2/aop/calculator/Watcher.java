@@ -17,9 +17,9 @@ public class Watcher {
     public static Logger LOGGER = LoggerFactory.getLogger(Watcher.class);
 
     @Before("execution(* com.kodilla.patterns2.aop.calculator.Calculator.factorial(..))" +
-    "&& args(theNumber) && target(object)")
-    public void logEvent(BigDecimal theNumber, Object object) {
-
+    "&& args(theNumber,theNumber2) && target(object)")
+    public void logEvent(BigDecimal theNumber,BigDecimal theNumber2, Object object) {
+        System.out.println(theNumber +"   " + theNumber2);
         LOGGER.info("Class:" + object.getClass().getName() + " , Args: " + theNumber );
     }
 

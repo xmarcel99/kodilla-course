@@ -28,9 +28,9 @@ public class Calculator {
         return x / y;
     }
 
-    public BigDecimal factorial(BigDecimal n) {
+    public BigDecimal factorial(BigDecimal n,BigDecimal m) {
         if (n.compareTo(BigDecimal.ONE) > 0) {
-            return n.multiply(factorial(n.subtract(BigDecimal.ONE)));
+            return n.multiply(factorial(n.subtract(BigDecimal.ONE),m));
         } else if (n.equals(BigDecimal.ONE)) {
             return BigDecimal.ONE;
         } else if (n.equals(BigDecimal.ZERO)) {
