@@ -9,4 +9,7 @@ include 'kodilla-patterns'
 include 'kodilla-jdbc'
 include 'kodilla-sudoku'
 include 'repeat-module'
+include 'kodilla-testing'
+include 'kodilla-stream'
+include 'kodilla-testing2'
 
